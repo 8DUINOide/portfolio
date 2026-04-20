@@ -450,18 +450,6 @@ body {
     border-radius: 15px;
 }
 
-.school-logo-placeholder {
-    width: 80px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
-    color: var(--accent-color);
-    font-size: 2rem;
-}
-
 .education-info h3 {
     font-family: var(--font-heading);
     font-size: 1.6rem;
