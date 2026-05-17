@@ -699,6 +699,71 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 3000);
     }
 
+    // Expose showNotification globally
+    window.showNotification = showNotification;
+
+    // Interactive Exhibit Demo Accounts Console
+    const accountTabs = document.querySelectorAll('.account-tab');
+    const accountDetails = document.querySelectorAll('.account-details');
+
+    if (accountTabs.length > 0) {
+        accountTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const role = tab.getAttribute('data-role');
+                
+                // Switch active tab
+                accountTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Switch active account detail panel
+                accountDetails.forEach(detail => {
+                    detail.classList.remove('active');
+                    if (detail.id === `acc-${role}`) {
+                        detail.classList.add('active');
+                    }
+                });
+            });
+        });
+    }
+
+    // Interactive Copy Buttons for Credentials
+    const copyButtons = document.querySelectorAll('.copy-btn');
+    if (copyButtons.length > 0) {
+        copyButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const valueEl = btn.parentNode.querySelector('.cred-value');
+                if (valueEl) {
+                    const textToCopy = valueEl.textContent.trim();
+                    
+                    navigator.clipboard.writeText(textToCopy)
+                        .then(() => {
+                            // Show success toast notification
+                            showNotification(`Copied to clipboard: "${textToCopy}"`, 'success');
+                            
+                            // Visual feedback on button
+                            btn.classList.add('copied');
+                            const icon = btn.querySelector('i');
+                            if (icon) {
+                                icon.className = 'fas fa-check';
+                            }
+                            
+                            // Reset button state after 2 seconds
+                            setTimeout(() => {
+                                btn.classList.remove('copied');
+                                if (icon) {
+                                    icon.className = 'far fa-copy';
+                                }
+                            }, 2000);
+                        })
+                        .catch(err => {
+                            console.error('Failed to copy text: ', err);
+                            showNotification('Failed to copy credentials', 'error');
+                        });
+                }
+            });
+        });
+    }
+
     // Initialize seamless carousels (cloning for CSS animation)
     function initCarousels() {
         const carousels = document.querySelectorAll('.event-carousel, .internship-gallery');

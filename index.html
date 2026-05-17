@@ -132,9 +132,131 @@
                         </div>
                     </div>
                     <div class="thesis-section">
-                        <div class="thesis-badge">Undergraduate Thesis</div>
-                        <h4 class="thesis-title">Integration of RFID and ESP32 in a Mobile-Based IoT System for Efficient Shuttle Service Management at Ateneo de Naga University</h4>
-                        <p class="thesis-description">A comprehensive IoT solution designed to streamline shuttle operations through real-time tracking, RFID-based authentication, and mobile integration for enhanced campus transport efficiency.</p>
+                        <div class="thesis-layout">
+                            <div class="thesis-info">
+                                <div class="thesis-badge">Undergraduate Thesis</div>
+                                <h4 class="thesis-title">Integration of RFID and ESP32 in a Mobile-Based IoT System for Efficient Shuttle Service Management at Ateneo de Naga University</h4>
+                                <p class="thesis-description">A comprehensive IoT solution designed to streamline shuttle operations through real-time tracking, RFID-based authentication, and mobile integration for enhanced campus transport efficiency.</p>
+                                
+                                <p class="offline-demo-note">
+                                    <i class="fas fa-exclamation-circle"></i> <strong>Offline Demo Mode:</strong> Due to a server shutdown, the application has been transitioned to an offline-first architecture utilizing <code>localStorage</code>. Anyone can download the app and experience all its features using mock data for the 4 interactive test accounts.
+                                </p>
+                            </div>
+                            
+                            <div class="thesis-app-showcase">
+                                <div class="playstore-container">
+                                    <span class="download-label"><i class="fab fa-google-play"></i> Get it on Google Play</span>
+                                    <a href="#" class="playstore-link" onclick="event.preventDefault(); window.showNotification('App download package is configured for offline demo deployment.', 'info');">
+                                        <img src="Google Play.png" alt="Get it on Google Play" class="google-play-badge">
+                                    </a>
+                                </div>
+                                
+                                <div class="test-accounts-card">
+                                    <div class="card-header">
+                                        <h6><i class="fas fa-key"></i> Offline Test Accounts</h6>
+                                    </div>
+                                    
+                                    <div class="account-tabs">
+                                        <button class="account-tab active" data-role="operator">Operator</button>
+                                        <button class="account-tab" data-role="driver">Driver</button>
+                                        <button class="account-tab" data-role="parent">Parent</button>
+                                        <button class="account-tab" data-role="student">Student</button>
+                                    </div>
+                                    
+                                    <div class="account-details-container">
+                                        <!-- Operator Details -->
+                                        <div id="acc-operator" class="account-details active">
+                                            <div class="credential-row">
+                                                <span class="cred-label">Username</span>
+                                                <div class="cred-value-container">
+                                                    <code class="cred-value">test_operator</code>
+                                                    <button class="copy-btn" title="Copy Username"><i class="far fa-copy"></i></button>
+                                                </div>
+                                            </div>
+                                            <div class="credential-row">
+                                                <span class="cred-label">Email</span>
+                                                <div class="cred-value-container">
+                                                    <code class="cred-value">testoperator@gmail.com</code>
+                                                    <button class="copy-btn" title="Copy Email"><i class="far fa-copy"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Driver Details -->
+                                        <div id="acc-driver" class="account-details">
+                                            <div class="credential-row">
+                                                <span class="cred-label">Username</span>
+                                                <div class="cred-value-container">
+                                                    <code class="cred-value">test_driver</code>
+                                                    <button class="copy-btn" title="Copy Username"><i class="far fa-copy"></i></button>
+                                                </div>
+                                            </div>
+                                            <div class="credential-row">
+                                                <span class="cred-label">Email</span>
+                                                <div class="cred-value-container">
+                                                    <code class="cred-value">testdriver@gmail.com</code>
+                                                    <button class="copy-btn" title="Copy Email"><i class="far fa-copy"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Parent Details -->
+                                        <div id="acc-parent" class="account-details">
+                                            <div class="credential-row">
+                                                <span class="cred-label">Username</span>
+                                                <div class="cred-value-container">
+                                                    <code class="cred-value">test_parent</code>
+                                                    <button class="copy-btn" title="Copy Username"><i class="far fa-copy"></i></button>
+                                                </div>
+                                            </div>
+                                            <div class="credential-row">
+                                                <span class="cred-label">Email</span>
+                                                <div class="cred-value-container">
+                                                    <code class="cred-value">testparent@gmail.com</code>
+                                                    <button class="copy-btn" title="Copy Email"><i class="far fa-copy"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Student Details -->
+                                        <div id="acc-student" class="account-details">
+                                            <div class="credential-row">
+                                                <span class="cred-label">Username</span>
+                                                <div class="cred-value-container">
+                                                    <code class="cred-value">test_student</code>
+                                                    <button class="copy-btn" title="Copy Username"><i class="far fa-copy"></i></button>
+                                                </div>
+                                            </div>
+                                            <div class="credential-row">
+                                                <span class="cred-label">Email</span>
+                                                <div class="cred-value-container">
+                                                    <code class="cred-value">teststudent@gmail.com</code>
+                                                    <button class="copy-btn" title="Copy Email"><i class="far fa-copy"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Common Fields -->
+                                        <div class="common-fields">
+                                            <div class="credential-row">
+                                                <span class="cred-label">Password</span>
+                                                <div class="cred-value-container">
+                                                    <code class="cred-value">12345678</code>
+                                                    <button class="copy-btn" title="Copy Password"><i class="far fa-copy"></i></button>
+                                                </div>
+                                            </div>
+                                            <div class="credential-row">
+                                                <span class="cred-label">Assigned Shuttle</span>
+                                                <div class="cred-value-container">
+                                                    <code class="cred-value">Test_Shuttle</code>
+                                                    <button class="copy-btn" title="Copy Assigned Shuttle"><i class="far fa-copy"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

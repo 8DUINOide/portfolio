@@ -1577,3 +1577,289 @@ footer p {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
+
+/* Exhibit and Interactive Shuttle Thesis Section Styles */
+.thesis-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 45px;
+    align-items: start;
+    margin-top: 20px;
+}
+
+.thesis-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.offline-demo-note {
+    background: rgba(0, 242, 234, 0.03);
+    border: 1px solid rgba(0, 242, 234, 0.08);
+    border-left: 4px solid var(--accent-color);
+    border-radius: 4px 16px 16px 4px;
+    padding: 18px 22px;
+    margin-top: 25px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    box-shadow: 0 8px 32px rgba(0, 242, 234, 0.02);
+}
+
+.offline-demo-note strong {
+    color: var(--accent-color);
+}
+
+.offline-demo-note code {
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid var(--border-color);
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-family: monospace;
+    color: var(--accent-color);
+    font-size: 0.85rem;
+}
+
+.offline-demo-note i {
+    margin-right: 8px;
+    color: var(--accent-color);
+}
+
+.thesis-app-showcase {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.playstore-container {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+}
+
+.playstore-container:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 30px rgba(0, 242, 234, 0.08);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.download-label {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.download-label i {
+    color: var(--accent-color);
+}
+
+.google-play-badge {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.google-play-badge:hover {
+    transform: scale(1.08);
+    border-color: var(--accent-color);
+    box-shadow: 0 12px 30px rgba(0, 242, 234, 0.25);
+}
+
+.test-accounts-card {
+    background: rgba(18, 18, 18, 0.7);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(15px);
+    transition: all 0.3s ease;
+}
+
+.test-accounts-card:hover {
+    border-color: rgba(112, 0, 255, 0.25);
+    box-shadow: 0 16px 40px rgba(112, 0, 255, 0.05);
+}
+
+.card-header {
+    background: rgba(255, 255, 255, 0.02);
+    border-bottom: 1px solid var(--border-color);
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-header h6 {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    color: #fff;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.card-header h6 i {
+    color: var(--accent-color);
+}
+
+.shuttle-badge {
+    background: linear-gradient(135deg, var(--accent-secondary), #8b2cff);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(112, 0, 255, 0.2);
+}
+
+.account-tabs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: rgba(0, 0, 0, 0.25);
+    padding: 6px;
+    border-bottom: 1px solid var(--border-color);
+    gap: 4px;
+}
+
+.account-tab {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    padding: 10px 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+    outline: none;
+    font-family: var(--font-heading);
+}
+
+.account-tab:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.account-tab.active {
+    background: var(--accent-secondary);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(112, 0, 255, 0.25);
+}
+
+.account-details-container {
+    padding: 20px;
+}
+
+.account-details {
+    display: none;
+}
+
+.account-details.active {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    animation: fadeInTab 0.35s ease-out forwards;
+}
+
+@keyframes fadeInTab {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.credential-row {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.cred-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.cred-value-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 8px 12px;
+    transition: all 0.3s ease;
+}
+
+.cred-value-container:hover {
+    border-color: rgba(0, 242, 234, 0.25);
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.cred-value {
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    word-break: break-all;
+    user-select: all;
+}
+
+.copy-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 0.85rem;
+    padding: 4px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    border-radius: 6px;
+}
+
+.copy-btn:hover {
+    color: var(--accent-color);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.copy-btn.copied {
+    color: #00ff88 !important;
+    transform: scale(1.08);
+}
+
+.common-fields {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* Responsiveness for Thesis Split Layout */
+@media (max-width: 992px) {
+    .thesis-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
