@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Typing Effect
     const textElement = document.querySelector('.typing-text');
-    const texts = ['Computer Engineering Student', 'Aspiring Developer', 'Tech Enthusiast'];
+    const texts = ['Computer Engineering Graduate', 'Aspiring Developer', 'Tech Enthusiast'];
     let count = 0;
     let index = 0;
     let currentText = '';
