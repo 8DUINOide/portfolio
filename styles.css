@@ -1439,14 +1439,65 @@ footer p {
         font-size: 2.5rem;
     }
     
+    .hero-image {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
     .profile-img {
         width: 200px;
         height: 200px;
+        margin: 0 auto;
+    }
+    
+    .badge {
+        margin-left: auto;
+        margin-right: auto;
     }
     
     .hero-actions {
         justify-content: center;
         flex-wrap: wrap;
+    }
+    
+    .education-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .school-logo {
+        margin: 0 auto;
+    }
+    
+    .education-info {
+        text-align: center;
+    }
+    
+    .org-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .org-logo {
+        margin: 0 auto;
+    }
+    
+    .internship-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .company-logo {
+        margin: 0 auto;
+    }
+    
+    .fieldtrips-gallery {
+        grid-template-columns: 1fr;
+    }
+    
+    .seminars-certificates-grid {
+        grid-template-columns: 1fr;
     }
     
     .section {
