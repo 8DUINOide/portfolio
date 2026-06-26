@@ -1863,3 +1863,48 @@ footer p {
         gap: 30px;
     }
 }
+
+/* =============================================
+   Visitor Counter - Ultra Subtle Footer Bar
+   Designed to be nearly invisible to casual visitors.
+   Shows just a tiny dot and a number at the very bottom.
+   ============================================= */
+.visitor-counter-bar {
+    width: 100%;
+    padding: 8px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    user-select: none;
+    pointer-events: none;
+}
+
+.visitor-counter-inner {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    opacity: 0.18;
+    transition: opacity 0.6s ease;
+}
+
+.visitor-counter-bar:hover .visitor-counter-inner {
+    opacity: 0.35;
+    pointer-events: auto;
+}
+
+.visitor-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--text-secondary);
+    display: inline-block;
+}
+
+.visitor-count-number {
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.5px;
+    font-weight: 300;
+}
