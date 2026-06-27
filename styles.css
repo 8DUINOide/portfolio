@@ -679,87 +679,26 @@ body {
     transition: transform 0.3s ease;
 }
 
+.internship-gallery .gallery-img {
+    height: 200px;
+    border-radius: 12px;
+}
+
 .gallery-item {
     flex: 0 0 200px;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
 
+.internship-gallery .gallery-item {
+    flex: 0 0 300px;
+}
+
 .gallery-item:hover .gallery-img {
     transform: scale(1.05);
 }
 
-.internship-certificate {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--border-color);
-    border-radius: 15px;
-    padding: 20px;
-    margin-top: 20px;
-}
 
-.internship-certificate h4 {
-    font-family: var(--font-heading);
-    font-size: 1.1rem;
-    color: var(--accent-color);
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.certificate-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 15px;
-    background: rgba(255, 255, 255, 0.02);
-    border-radius: 10px;
-    transition: all 0.3s ease;
-}
-
-.certificate-item:hover {
-    background: rgba(0, 242, 234, 0.05);
-    transform: translateY(-2px);
-}
-
-.certificate-item i,
-.certificate-item .cert-logo {
-    font-size: 2rem;
-    color: var(--accent-color);
-    width: 40px;
-    text-align: center;
-}
-
-.certificate-item .cert-logo {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 5px;
-}
-
-.certificate-info {
-    flex: 1;
-}
-
-.certificate-info h5 {
-    font-family: var(--font-heading);
-    font-size: 1rem;
-    color: var(--text-primary);
-    margin-bottom: 5px;
-}
-
-.certificate-info p {
-    color: var(--text-secondary);
-    font-size: 0.85rem;
-    margin-bottom: 10px;
-}
-
-.certificate-info .btn {
-    font-size: 0.8rem;
-    padding: 8px 16px;
-}
 
 /* Events Section */
 .events-container {
@@ -867,15 +806,16 @@ body {
 }
 
 .year-label {
-    background: linear-gradient(135deg, var(--accent-color), #00ffcc);
-    color: white;
+    background: rgba(0, 242, 234, 0.1);
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
     padding: 8px 16px;
     border-radius: 20px;
     font-size: 0.9rem;
     font-weight: 600;
     white-space: nowrap;
-    box-shadow: 0 4px 15px rgba(0, 242, 234, 0.3);
-    animation: pulse 2s ease-in-out infinite;
+    box-shadow: 0 0 15px rgba(0, 242, 234, 0.2);
+    backdrop-filter: blur(5px);
 }
 
 @keyframes pulse {
