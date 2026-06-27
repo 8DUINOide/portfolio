@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Typing Effect
     const textElement = document.querySelector('.typing-text');
-    const texts = ['Computer Engineering Graduate', 'Aspiring Developer', 'Tech Enthusiast'];
+    const texts = ['Backend Developer', 'Android Developer', 'Software Engineer', 'Tech Enthusiast'];
     let count = 0;
     let index = 0;
     let currentText = '';
@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (gallery && gallery.length > 0) {
             currentGallery = gallery;
             currentImageIndex = 0;
-            
+
             // Preload the first image before showing lightbox
             const img = new Image();
             img.onload = () => {
@@ -255,7 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (gallery && gallery.length > 0) {
             currentGallery = gallery;
             currentImageIndex = 0;
-            
+
             // Preload the first image before showing lightbox
             const img = new Image();
             img.onload = () => {
@@ -275,7 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateLightboxImage() {
         if (currentGallery.length > 0) {
             lightboxImg.src = currentGallery[currentImageIndex];
-            
+
             // Add filename caption only for non-event galleries
             const isEventImage = currentGallery[currentImageIndex].includes('Events/');
             if (!isEventImage) {
@@ -294,7 +294,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     existingCaption.remove();
                 }
             }
-            
+
             updateGalleryNavigation();
         }
     }
@@ -311,7 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Create navigation container
             const navDiv = document.createElement('div');
             navDiv.className = 'gallery-navigation';
-            
+
             // Previous button
             const prevBtn = document.createElement('button');
             prevBtn.className = 'gallery-nav-btn prev-btn';
@@ -320,12 +320,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.stopPropagation();
                 navigateGallery(-1);
             };
-            
+
             // Image counter
             const counter = document.createElement('div');
             counter.className = 'gallery-counter';
             counter.textContent = `${currentImageIndex + 1} / ${currentGallery.length}`;
-            
+
             // Next button
             const nextBtn = document.createElement('button');
             nextBtn.className = 'gallery-nav-btn next-btn';
@@ -334,7 +334,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.stopPropagation();
                 navigateGallery(1);
             };
-            
+
             navDiv.appendChild(prevBtn);
             navDiv.appendChild(counter);
             navDiv.appendChild(nextBtn);
@@ -357,7 +357,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.openLightbox = (imageSrc) => {
         currentGallery = [imageSrc];
         currentImageIndex = 0;
-        
+
         // Preload the image before showing lightbox
         const img = new Image();
         img.onload = () => {
@@ -376,7 +376,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.openCertificateLightbox = (pdfSrc) => {
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
-        
+
         // Create container with overflow hidden to crop PDF controls
         const container = document.createElement('div');
         container.style.cssText = `
@@ -390,7 +390,7 @@ document.addEventListener('DOMContentLoaded', () => {
             overflow: hidden;
             background: white;
         `;
-        
+
         // Create PDF viewer iframe - slightly larger to crop controls
         const pdfViewer = document.createElement('iframe');
         pdfViewer.src = pdfSrc;
@@ -402,20 +402,20 @@ document.addEventListener('DOMContentLoaded', () => {
             top: -40px;
             left: -30px;
         `;
-        
+
         container.appendChild(pdfViewer);
         lightbox.appendChild(container);
-        
+
         // Hide the main image
         lightboxImg.style.display = 'none';
-        
+
         // Show lightbox
         lightbox.style.display = 'block';
         setTimeout(() => {
             lightbox.classList.add('active');
         }, 10);
         document.body.style.overflow = 'hidden';
-        
+
         // Update close function to clean up PDF viewer
         const originalCloseLightbox = closeLightboxFunction;
         window.closeLightboxFunction = () => {
@@ -429,19 +429,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 lightboxImg.style.display = 'block';
             }, 300);
-            
+
             // Clean up gallery navigation
             const existingNav = lightbox.querySelector('.gallery-navigation');
             if (existingNav) {
                 existingNav.remove();
             }
-            
+
             // Clean up image caption
             const existingCaption = lightbox.querySelector('.image-caption');
             if (existingCaption) {
                 existingCaption.remove();
             }
-            
+
             // Restore original close function
             window.closeLightboxFunction = originalCloseLightbox;
         };
@@ -454,19 +454,19 @@ document.addEventListener('DOMContentLoaded', () => {
             lightbox.style.display = 'none';
             document.body.style.overflow = 'auto';
         }, 300);
-        
+
         // Clean up gallery navigation
         const existingNav = lightbox.querySelector('.gallery-navigation');
         if (existingNav) {
             existingNav.remove();
         }
-        
+
         // Clean up image caption
         const existingCaption = lightbox.querySelector('.image-caption');
         if (existingCaption) {
             existingCaption.remove();
         }
-        
+
         currentGallery = [];
         currentImageIndex = 0;
     }
@@ -588,16 +588,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            
+
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
-            
+
             const rotateX = (y - centerY) / 10;
             const rotateY = (centerX - x) / 10;
-            
+
             card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
         });
-        
+
         card.addEventListener('mouseleave', () => {
             card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
         });
@@ -605,7 +605,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Add loading animation for images
     document.querySelectorAll('img:not(#lightbox-img)').forEach(img => {
-        img.addEventListener('load', function() {
+        img.addEventListener('load', function () {
             this.style.animation = 'fadeIn 0.5s ease-in';
         });
     });
@@ -623,32 +623,32 @@ document.addEventListener('DOMContentLoaded', () => {
     // Contact Form Handler
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             // Get form data
             const formData = {
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
                 message: document.getElementById('message').value
             };
-            
+
             // Create mailto link with form data
             const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`);
             const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
             const mailtoLink = `mailto:alfrancisbadillapaz10@gmail.com?subject=${subject}&body=${body}`;
-            
+
             // Open email client
             window.location.href = mailtoLink;
-            
+
             // Show success message
             showNotification('Opening your email client...', 'success');
-            
+
             // Reset form
             contactForm.reset();
         });
     }
-    
+
     // Notification function
     function showNotification(message, type = 'info') {
         // Remove existing notification if any
@@ -656,12 +656,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (existingNotification) {
             existingNotification.remove();
         }
-        
+
         // Create notification element
         const notification = document.createElement('div');
         notification.className = `notification notification-${type}`;
         notification.textContent = message;
-        
+
         // Add styles
         notification.style.cssText = `
             position: fixed;
@@ -676,7 +676,7 @@ document.addEventListener('DOMContentLoaded', () => {
             animation: slideIn 0.3s ease-out;
             max-width: 300px;
         `;
-        
+
         // Add slide in animation
         const slideStyle = document.createElement('style');
         slideStyle.textContent = `
@@ -686,10 +686,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         `;
         document.head.appendChild(slideStyle);
-        
+
         // Add to page
         document.body.appendChild(notification);
-        
+
         // Remove after 3 seconds
         setTimeout(() => {
             notification.style.animation = 'slideIn 0.3s ease-out reverse';
@@ -710,11 +710,11 @@ document.addEventListener('DOMContentLoaded', () => {
         accountTabs.forEach(tab => {
             tab.addEventListener('click', () => {
                 const role = tab.getAttribute('data-role');
-                
+
                 // Switch active tab
                 accountTabs.forEach(t => t.classList.remove('active'));
                 tab.classList.add('active');
-                
+
                 // Switch active account detail panel
                 accountDetails.forEach(detail => {
                     detail.classList.remove('active');
@@ -725,12 +725,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Scroll the Ride.ADNU Showcase carousel to the corresponding role
                 const showcaseInner = document.querySelector('.thesis-section .event-carousel');
-                
+
                 if (showcaseInner) {
                     // Find the label for this role
                     const labels = showcaseInner.querySelectorAll('.year-label');
                     let targetMarker = null;
-                    
+
                     // We only need the first occurrence (before cloning)
                     for (let label of labels) {
                         if (label.textContent.toLowerCase() === role.toLowerCase()) {
@@ -738,24 +738,24 @@ document.addEventListener('DOMContentLoaded', () => {
                             break;
                         }
                     }
-                    
+
                     if (targetMarker) {
                         // Use Web Animations API to change the position of the CSS animation without stopping it
                         const anims = showcaseInner.getAnimations();
                         if (anims.length > 0) {
                             const anim = anims[0];
                             const duration = anim.effect.getTiming().duration;
-                            
+
                             // The original content is half of the total scrollWidth (because it was cloned)
                             const originalWidth = showcaseInner.scrollWidth / 2;
-                            
+
                             let targetOffset = targetMarker.offsetLeft;
                             targetOffset -= 20; // 20px padding from the left edge
                             if (targetOffset < 0) targetOffset = 0;
-                            
+
                             // Calculate the time ratio
                             const ratio = targetOffset / originalWidth;
-                            
+
                             // Jump to that specific time in the continuous animation
                             anim.currentTime = (ratio * duration) % duration;
                         }
@@ -773,19 +773,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 const valueEl = btn.parentNode.querySelector('.cred-value');
                 if (valueEl) {
                     const textToCopy = valueEl.textContent.trim();
-                    
+
                     navigator.clipboard.writeText(textToCopy)
                         .then(() => {
                             // Show success toast notification
                             showNotification(`Copied to clipboard: "${textToCopy}"`, 'success');
-                            
+
                             // Visual feedback on button
                             btn.classList.add('copied');
                             const icon = btn.querySelector('i');
                             if (icon) {
                                 icon.className = 'fas fa-check';
                             }
-                            
+
                             // Reset button state after 2 seconds
                             setTimeout(() => {
                                 btn.classList.remove('copied');
@@ -806,11 +806,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize seamless carousels (cloning for CSS animation)
     function initCarousels() {
         const carousels = document.querySelectorAll('.event-carousel, .internship-gallery');
-        
+
         carousels.forEach(carousel => {
             // Get all images and markers in the carousel
             const items = Array.from(carousel.children);
-            
+
             // Clone items for seamless scrolling
             items.forEach(item => {
                 const clone = item.cloneNode(true);
@@ -822,7 +822,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add click handlers to event carousel images
     const carouselImages = document.querySelectorAll('.event-carousel-img');
     carouselImages.forEach(img => {
-        img.addEventListener('click', function() {
+        img.addEventListener('click', function () {
             const src = this.getAttribute('src');
             openLightbox(src);
         });
@@ -831,7 +831,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add click handlers to internship gallery images
     const internshipImages = document.querySelectorAll('.internship-gallery .gallery-img');
     internshipImages.forEach(img => {
-        img.addEventListener('click', function() {
+        img.addEventListener('click', function () {
             const src = this.getAttribute('src');
             openLightbox(src);
         });
