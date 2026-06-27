@@ -329,8 +329,7 @@ body {
 
 /* About Section */
 .about-content {
-    max-width: 800px;
-    margin: 0 auto;
+    width: 100%;
     text-align: center;
 }
 
@@ -423,8 +422,7 @@ body {
 
 /* Education Section */
 .education-container {
-    max-width: 900px;
-    margin: 0 auto;
+    width: 100%;
 }
 
 .education-card {
@@ -579,8 +577,7 @@ body {
 
 /* Internships Section */
 .internship-timeline {
-    max-width: 800px;
-    margin: 0 auto;
+    width: 100%;
 }
 
 .internship-header {
@@ -895,8 +892,7 @@ body {
 
 /* Organizations Section */
 .organizations-list {
-    max-width: 800px;
-    margin: 0 auto;
+    width: 100%;
 }
 
 .org-item {
