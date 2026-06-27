@@ -791,6 +791,13 @@ body {
     transition: all 0.3s ease;
 }
 
+.event-carousel-img.portrait-img {
+    flex: 0 0 220px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
 .event-carousel-img:hover {
     transform: scale(1.05);
     box-shadow: 0 10px 25px rgba(0, 242, 234, 0.2);
@@ -1514,6 +1521,11 @@ footer p {
         height: 180px;
     }
     
+    .event-carousel-img.portrait-img {
+        flex: 0 0 180px;
+        height: 380px;
+    }
+    
     .event-header {
         flex-direction: column;
         text-align: center;
@@ -1551,6 +1563,11 @@ footer p {
     .event-carousel-img {
         flex: 0 0 220px;
         height: 150px;
+    }
+    
+    .event-carousel-img.portrait-img {
+        flex: 0 0 160px;
+        height: 330px;
     }
     
     .event-row {
@@ -1695,7 +1712,7 @@ footer p {
 .card-header {
     background: rgba(255, 255, 255, 0.02);
     border-bottom: 1px solid var(--border-color);
-    padding: 16px 20px;
+    padding: 10px 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1740,7 +1757,7 @@ footer p {
     background: transparent;
     border: none;
     color: var(--text-secondary);
-    padding: 10px 4px;
+    padding: 6px 4px;
     font-size: 0.75rem;
     font-weight: 600;
     cursor: pointer;
@@ -1756,13 +1773,13 @@ footer p {
 }
 
 .account-tab.active {
-    background: var(--accent-secondary);
-    color: #fff;
-    box-shadow: 0 4px 15px rgba(112, 0, 255, 0.25);
+    background: var(--accent-color);
+    color: #000;
+    box-shadow: 0 4px 15px rgba(0, 242, 234, 0.25);
 }
 
 .account-details-container {
-    padding: 20px;
+    padding: 12px;
 }
 
 .account-details {
@@ -1772,7 +1789,7 @@ footer p {
 .account-details.active {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 8px;
     animation: fadeInTab 0.35s ease-out forwards;
 }
 
@@ -1784,7 +1801,7 @@ footer p {
 .credential-row {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 3px;
 }
 
 .cred-label {

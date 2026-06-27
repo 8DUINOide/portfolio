@@ -722,6 +722,45 @@ document.addEventListener('DOMContentLoaded', () => {
                         detail.classList.add('active');
                     }
                 });
+
+                // Scroll the Ride.ADNU Showcase carousel to the corresponding role
+                const showcaseInner = document.querySelector('.thesis-section .event-carousel');
+                
+                if (showcaseInner) {
+                    // Find the label for this role
+                    const labels = showcaseInner.querySelectorAll('.year-label');
+                    let targetMarker = null;
+                    
+                    // We only need the first occurrence (before cloning)
+                    for (let label of labels) {
+                        if (label.textContent.toLowerCase() === role.toLowerCase()) {
+                            targetMarker = label.closest('.year-marker');
+                            break;
+                        }
+                    }
+                    
+                    if (targetMarker) {
+                        // Use Web Animations API to change the position of the CSS animation without stopping it
+                        const anims = showcaseInner.getAnimations();
+                        if (anims.length > 0) {
+                            const anim = anims[0];
+                            const duration = anim.effect.getTiming().duration;
+                            
+                            // The original content is half of the total scrollWidth (because it was cloned)
+                            const originalWidth = showcaseInner.scrollWidth / 2;
+                            
+                            let targetOffset = targetMarker.offsetLeft;
+                            targetOffset -= 20; // 20px padding from the left edge
+                            if (targetOffset < 0) targetOffset = 0;
+                            
+                            // Calculate the time ratio
+                            const ratio = targetOffset / originalWidth;
+                            
+                            // Jump to that specific time in the continuous animation
+                            anim.currentTime = (ratio * duration) % duration;
+                        }
+                    }
+                }
             });
         });
     }
