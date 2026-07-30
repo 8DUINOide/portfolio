@@ -183,12 +183,37 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', () => {
         const navbar = document.querySelector('.navbar');
         if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(10, 10, 10, 0.95)';
-            navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.3)';
+            navbar.classList.add('scrolled');
         } else {
-            navbar.style.background = 'rgba(10, 10, 10, 0.9)';
-            navbar.style.boxShadow = 'none';
+            navbar.classList.remove('scrolled');
         }
+    });
+
+    // Theme Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const rootElement = document.documentElement;
+    
+    // Check saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        rootElement.classList.add('light-mode');
+    }
+
+    themeToggle.addEventListener('click', () => {
+        // Add transition class for smooth animation
+        document.documentElement.classList.add('theme-transition');
+        
+        rootElement.classList.toggle('light-mode');
+        if (rootElement.classList.contains('light-mode')) {
+            localStorage.setItem('theme', 'light');
+        } else {
+            localStorage.setItem('theme', 'dark');
+        }
+        
+        // Remove the class after transition completes
+        setTimeout(() => {
+            document.documentElement.classList.remove('theme-transition');
+        }, 500);
     });
 
     // Typing Effect

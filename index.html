@@ -34,6 +34,23 @@
                 <li><a href="#certifications" class="nav-link">Certifications</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                <div class="stars">
+                    <span class="star star-1"></span>
+                    <span class="star star-2"></span>
+                    <span class="star star-3"></span>
+                    <span class="star star-4"></span>
+                </div>
+                <div class="clouds">
+                    <span class="cloud cloud-1"></span>
+                    <span class="cloud cloud-2"></span>
+                    <span class="cloud cloud-3"></span>
+                </div>
+                <div class="toggle-thumb">
+                    <i class="fas fa-moon dark-icon"></i>
+                    <i class="fas fa-sun light-icon"></i>
+                </div>
+            </button>
             <div class="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -58,7 +75,7 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="profile.jpg" alt="Profile" class="profile-img">
+                    <img src="toga.png" alt="Profile" class="profile-img" id="hero-profile-img">
                     <div class="status-indicator">
                         <span class="dot"></span> Open to Work
                     </div>
@@ -73,8 +90,13 @@
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>I'm a passionate Computer Engineer graduated at Ateneo De Naga University with a strong foundation in both hardware and software development. My journey in technology has led me to explore various domains from embedded systems to web development, and from mobile apps to cybersecurity.</p>
-                    <p>With hands-on experience in multiple programming languages and frameworks, I strive to create innovative solutions that bridge the gap between theoretical knowledge and practical applications.</p>
+                    <p>I'm a passionate Computer Engineer graduated at Ateneo De Naga University with a strong
+                        foundation in both hardware and software development. My journey in technology has led me to
+                        explore various domains from embedded systems to web development, and from mobile apps to
+                        cybersecurity.</p>
+                    <p>With hands-on experience in multiple programming languages and frameworks, I strive to create
+                        innovative solutions that bridge the gap between theoretical knowledge and practical
+                        applications.</p>
                     <div class="skills-section">
                         <h3>Tech Stack</h3>
                         <div class="skills-categories">
@@ -88,7 +110,7 @@
                                     <div class="skill-item"><i class="fab fa-css3-alt"></i> CSS3</div>
                                 </div>
                             </div>
-                            
+
                             <!-- Backend/Cloud -->
                             <div class="skill-category">
                                 <h4><i class="fas fa-server"></i> Backend/Cloud</h4>
@@ -99,7 +121,7 @@
                                     <div class="skill-item"><i class="fas fa-database"></i> Firebase/SQL</div>
                                 </div>
                             </div>
-                            
+
                             <!-- Hardware/Tools -->
                             <div class="skill-category">
                                 <h4><i class="fas fa-tools"></i> Hardware/Tools</h4>
@@ -116,7 +138,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Education Section -->
     <section id="education" class="section">
         <div class="container">
@@ -135,23 +157,29 @@
                         <div class="thesis-layout">
                             <div class="thesis-info">
                                 <div class="thesis-badge">Undergraduate Thesis</div>
-                                <h4 class="thesis-title">Integration of RFID and ESP32 in a Mobile-Based IoT System for Efficient Shuttle Service Management at Ateneo de Naga University</h4>
-                                <p class="thesis-description">A comprehensive IoT solution designed to streamline shuttle operations through real-time tracking, RFID-based authentication, and mobile integration for enhanced campus transport efficiency.</p>
-                                
+                                <h4 class="thesis-title">Integration of RFID and ESP32 in a Mobile-Based IoT System for
+                                    Efficient Shuttle Service Management at Ateneo de Naga University</h4>
+                                <p class="thesis-description">A comprehensive IoT solution designed to streamline
+                                    shuttle operations through real-time tracking, RFID-based authentication, and mobile
+                                    integration for enhanced campus transport efficiency.</p>
+
                                 <p class="offline-demo-note">
-                                    <i class="fas fa-exclamation-circle"></i> <strong>Offline Demo Mode:</strong> Due to a server shutdown, the application has been transitioned to an offline-first architecture utilizing <code>localStorage</code>. Anyone can download the app and experience all its features using mock data for the 4 interactive test accounts.
+                                    <i class="fas fa-exclamation-circle"></i> <strong>Offline Demo Mode:</strong> Due to
+                                    a server shutdown, the application has been transitioned to an offline-first
+                                    architecture utilizing <code>localStorage</code>. Anyone can download the app and
+                                    experience all its features using mock data for the 4 interactive test accounts.
                                 </p>
                             </div>
-                            
+
                             <div class="thesis-app-showcase">
-                                
+
                                 <div class="test-accounts-card">
                                     <div class="card-header">
                                         <h6><i class="fas fa-key"></i> Offline Test Accounts</h6>
                                     </div>
-                                    
 
-                                    
+
+
                                     <div class="account-details-container">
                                         <!-- Operator Details -->
                                         <div id="acc-operator" class="account-details active">
@@ -159,32 +187,36 @@
                                                 <span class="cred-label">Username</span>
                                                 <div class="cred-value-container">
                                                     <code class="cred-value">test_operator</code>
-                                                    <button class="copy-btn" title="Copy Username"><i class="far fa-copy"></i></button>
+                                                    <button class="copy-btn" title="Copy Username"><i
+                                                            class="far fa-copy"></i></button>
                                                 </div>
                                             </div>
                                             <div class="credential-row">
                                                 <span class="cred-label">Email</span>
                                                 <div class="cred-value-container">
                                                     <code class="cred-value">testoperator@gmail.com</code>
-                                                    <button class="copy-btn" title="Copy Email"><i class="far fa-copy"></i></button>
+                                                    <button class="copy-btn" title="Copy Email"><i
+                                                            class="far fa-copy"></i></button>
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                         <!-- Driver Details -->
                                         <div id="acc-driver" class="account-details">
                                             <div class="credential-row">
                                                 <span class="cred-label">Username</span>
                                                 <div class="cred-value-container">
                                                     <code class="cred-value">test_driver</code>
-                                                    <button class="copy-btn" title="Copy Username"><i class="far fa-copy"></i></button>
+                                                    <button class="copy-btn" title="Copy Username"><i
+                                                            class="far fa-copy"></i></button>
                                                 </div>
                                             </div>
                                             <div class="credential-row">
                                                 <span class="cred-label">Email</span>
                                                 <div class="cred-value-container">
                                                     <code class="cred-value">testdriver@gmail.com</code>
-                                                    <button class="copy-btn" title="Copy Email"><i class="far fa-copy"></i></button>
+                                                    <button class="copy-btn" title="Copy Email"><i
+                                                            class="far fa-copy"></i></button>
                                                 </div>
                                             </div>
                                         </div>
@@ -195,14 +227,16 @@
                                                 <span class="cred-label">Username</span>
                                                 <div class="cred-value-container">
                                                     <code class="cred-value">test_parent</code>
-                                                    <button class="copy-btn" title="Copy Username"><i class="far fa-copy"></i></button>
+                                                    <button class="copy-btn" title="Copy Username"><i
+                                                            class="far fa-copy"></i></button>
                                                 </div>
                                             </div>
                                             <div class="credential-row">
                                                 <span class="cred-label">Email</span>
                                                 <div class="cred-value-container">
                                                     <code class="cred-value">testparent@gmail.com</code>
-                                                    <button class="copy-btn" title="Copy Email"><i class="far fa-copy"></i></button>
+                                                    <button class="copy-btn" title="Copy Email"><i
+                                                            class="far fa-copy"></i></button>
                                                 </div>
                                             </div>
                                         </div>
@@ -213,38 +247,43 @@
                                                 <span class="cred-label">Username</span>
                                                 <div class="cred-value-container">
                                                     <code class="cred-value">test_student</code>
-                                                    <button class="copy-btn" title="Copy Username"><i class="far fa-copy"></i></button>
+                                                    <button class="copy-btn" title="Copy Username"><i
+                                                            class="far fa-copy"></i></button>
                                                 </div>
                                             </div>
                                             <div class="credential-row">
                                                 <span class="cred-label">Email</span>
                                                 <div class="cred-value-container">
                                                     <code class="cred-value">teststudent@gmail.com</code>
-                                                    <button class="copy-btn" title="Copy Email"><i class="far fa-copy"></i></button>
+                                                    <button class="copy-btn" title="Copy Email"><i
+                                                            class="far fa-copy"></i></button>
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                         <!-- Common Fields -->
                                         <div class="common-fields">
                                             <div class="credential-row">
                                                 <span class="cred-label">Password</span>
                                                 <div class="cred-value-container">
                                                     <code class="cred-value">12345678</code>
-                                                    <button class="copy-btn" title="Copy Password"><i class="far fa-copy"></i></button>
+                                                    <button class="copy-btn" title="Copy Password"><i
+                                                            class="far fa-copy"></i></button>
                                                 </div>
                                             </div>
                                             <div class="credential-row">
                                                 <span class="cred-label">Assigned Shuttle</span>
                                                 <div class="cred-value-container">
                                                     <code class="cred-value">Test_Shuttle</code>
-                                                    <button class="copy-btn" title="Copy Assigned Shuttle"><i class="far fa-copy"></i></button>
+                                                    <button class="copy-btn" title="Copy Assigned Shuttle"><i
+                                                            class="far fa-copy"></i></button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    
-                                    <div class="account-tabs" style="border-top: 1px solid var(--border-color); border-bottom: none;">
+
+                                    <div class="account-tabs"
+                                        style="border-top: 1px solid var(--border-color); border-bottom: none;">
                                         <button class="account-tab active" data-role="operator">Operator</button>
                                         <button class="account-tab" data-role="driver">Driver</button>
                                         <button class="account-tab" data-role="parent">Parent</button>
@@ -256,74 +295,97 @@
 
                         <!-- Ride.ADNU App Showcase -->
                         <div class="events-container" style="margin-top: 30px;">
-                    <div class="event-row">
-                        <div class="event-info">
-                            <div class="event-header">
-                                <div class="event-icon" style="background: none; padding: 0;">
-                                    <img src="Ride,ADNU app icon.png" alt="Ride.ADNU App Icon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 242, 234, 0.2);">
+                            <div class="event-row">
+                                <div class="event-info">
+                                    <div class="event-header">
+                                        <div class="event-icon" style="background: none; padding: 0;">
+                                            <img src="Ride,ADNU app icon.png" alt="Ride.ADNU App Icon"
+                                                style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 242, 234, 0.2);">
+                                        </div>
+                                        <div>
+                                            <h3>Ride.ADNU App Showcase</h3>
+                                            <p>A Comprehensive UI/UX demonstration of the different user modules also
+                                                available on the Google Play</p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h3>Ride.ADNU App Showcase</h3>
-                                    <p>A Comprehensive UI/UX demonstration of the different user modules also available on the Google Play</p>
+                                <div class="event-images-scroll">
+                                    <div class="event-carousel">
+                                        <!-- Getting Started -->
+                                        <div class="year-marker">
+                                            <span class="year-label">Getting Started</span>
+                                        </div>
+                                        <img src="Ride.ADNU/RIDE.ADNU SEARCH ON GOOGLE PLAY.jpg" alt="Ride.ADNU Search"
+                                            class="event-carousel-img portrait-img">
+                                        <img src="Ride.ADNU/DOWNLOAD RIDE.ADNU.jpg" alt="Ride.ADNU Download"
+                                            class="event-carousel-img portrait-img">
+                                        <img src="Ride.ADNU/RIDE.ADNU HOMESCREEN.jpg" alt="Ride.ADNU Login"
+                                            class="event-carousel-img portrait-img">
+
+                                        <!-- Operator -->
+                                        <div class="year-marker">
+                                            <span class="year-label">Operator</span>
+                                        </div>
+                                        <img src="Ride.ADNU/OPERATOR_HOMESCREEN.jpg" alt="Operator Home"
+                                            class="event-carousel-img portrait-img">
+                                        <img src="Ride.ADNU/OPERATOR_RIDESCREEN.jpg" alt="Operator Ride"
+                                            class="event-carousel-img portrait-img">
+                                        <img src="Ride.ADNU/OPERATOR_PAYMENTSCREEN.jpg" alt="Operator Payment"
+                                            class="event-carousel-img portrait-img">
+                                        <img src="Ride.ADNU/OPERATOR_MESSAGESCREEN.jpg" alt="Operator Message"
+                                            class="event-carousel-img portrait-img">
+                                        <img src="Ride.ADNU/OPERATOR_PROFILESCREEN.jpg" alt="Operator Profile"
+                                            class="event-carousel-img portrait-img">
+
+                                        <!-- Driver -->
+                                        <div class="year-marker">
+                                            <span class="year-label">Driver</span>
+                                        </div>
+                                        <img src="Ride.ADNU/DRIVER_HOMESCREEN.jpg" alt="Driver Home"
+                                            class="event-carousel-img portrait-img">
+                                        <img src="Ride.ADNU/DRIVER_RIDESCREEN.jpg" alt="Driver Ride"
+                                            class="event-carousel-img portrait-img">
+                                        <img src="Ride.ADNU/DRIVER_MESSAGESCREEN.jpg" alt="Driver Message"
+                                            class="event-carousel-img portrait-img">
+                                        <img src="Ride.ADNU/DRIVER_PROFILESCREEN.jpg" alt="Driver Profile"
+                                            class="event-carousel-img portrait-img">
+
+                                        <!-- Parent -->
+                                        <div class="year-marker">
+                                            <span class="year-label">Parent</span>
+                                        </div>
+                                        <img src="Ride.ADNU/PARENT_HOMESCREEN.jpg" alt="Parent Home"
+                                            class="event-carousel-img portrait-img">
+                                        <img src="Ride.ADNU/PARENT_RIDESCREEN.jpg" alt="Parent Ride"
+                                            class="event-carousel-img portrait-img">
+                                        <img src="Ride.ADNU/PARENT_PAYMENTSCREEN.jpg" alt="Parent Payment"
+                                            class="event-carousel-img portrait-img">
+                                        <img src="Ride.ADNU/PARENT_MESSAGESCREEN.jpg" alt="Parent Message"
+                                            class="event-carousel-img portrait-img">
+                                        <img src="Ride.ADNU/PARENT_PROFILESCREEN.jpg" alt="Parent Profile"
+                                            class="event-carousel-img portrait-img">
+
+                                        <!-- Student -->
+                                        <div class="year-marker">
+                                            <span class="year-label">Student</span>
+                                        </div>
+                                        <img src="Ride.ADNU/STUDENT_HOMESCREEN.jpg" alt="Student Home"
+                                            class="event-carousel-img portrait-img">
+                                        <img src="Ride.ADNU/STUDENT_RIDESCREEN.jpg" alt="Student Ride"
+                                            class="event-carousel-img portrait-img">
+                                        <img src="Ride.ADNU/STUDENT_MESSAGESCREEN.jpg" alt="Student Message"
+                                            class="event-carousel-img portrait-img">
+                                        <img src="Ride.ADNU/STUDENT_PROFILESCREEN.jpg" alt="Student Profile"
+                                            class="event-carousel-img portrait-img">
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="event-images-scroll">
-                            <div class="event-carousel">
-                                <!-- Getting Started -->
-                                <div class="year-marker">
-                                    <span class="year-label">Getting Started</span>
-                                </div>
-                                <img src="Ride.ADNU/RIDE.ADNU SEARCH ON GOOGLE PLAY.jpg" alt="Ride.ADNU Search" class="event-carousel-img portrait-img">
-                                <img src="Ride.ADNU/DOWNLOAD RIDE.ADNU.jpg" alt="Ride.ADNU Download" class="event-carousel-img portrait-img">
-                                <img src="Ride.ADNU/RIDE.ADNU HOMESCREEN.jpg" alt="Ride.ADNU Login" class="event-carousel-img portrait-img">
-                                
-                                <!-- Operator -->
-                                <div class="year-marker">
-                                    <span class="year-label">Operator</span>
-                                </div>
-                                <img src="Ride.ADNU/OPERATOR_HOMESCREEN.jpg" alt="Operator Home" class="event-carousel-img portrait-img">
-                                <img src="Ride.ADNU/OPERATOR_RIDESCREEN.jpg" alt="Operator Ride" class="event-carousel-img portrait-img">
-                                <img src="Ride.ADNU/OPERATOR_PAYMENTSCREEN.jpg" alt="Operator Payment" class="event-carousel-img portrait-img">
-                                <img src="Ride.ADNU/OPERATOR_MESSAGESCREEN.jpg" alt="Operator Message" class="event-carousel-img portrait-img">
-                                <img src="Ride.ADNU/OPERATOR_PROFILESCREEN.jpg" alt="Operator Profile" class="event-carousel-img portrait-img">
-                                
-                                <!-- Driver -->
-                                <div class="year-marker">
-                                    <span class="year-label">Driver</span>
-                                </div>
-                                <img src="Ride.ADNU/DRIVER_HOMESCREEN.jpg" alt="Driver Home" class="event-carousel-img portrait-img">
-                                <img src="Ride.ADNU/DRIVER_RIDESCREEN.jpg" alt="Driver Ride" class="event-carousel-img portrait-img">
-                                <img src="Ride.ADNU/DRIVER_MESSAGESCREEN.jpg" alt="Driver Message" class="event-carousel-img portrait-img">
-                                <img src="Ride.ADNU/DRIVER_PROFILESCREEN.jpg" alt="Driver Profile" class="event-carousel-img portrait-img">
-                                
-                                <!-- Parent -->
-                                <div class="year-marker">
-                                    <span class="year-label">Parent</span>
-                                </div>
-                                <img src="Ride.ADNU/PARENT_HOMESCREEN.jpg" alt="Parent Home" class="event-carousel-img portrait-img">
-                                <img src="Ride.ADNU/PARENT_RIDESCREEN.jpg" alt="Parent Ride" class="event-carousel-img portrait-img">
-                                <img src="Ride.ADNU/PARENT_PAYMENTSCREEN.jpg" alt="Parent Payment" class="event-carousel-img portrait-img">
-                                <img src="Ride.ADNU/PARENT_MESSAGESCREEN.jpg" alt="Parent Message" class="event-carousel-img portrait-img">
-                                <img src="Ride.ADNU/PARENT_PROFILESCREEN.jpg" alt="Parent Profile" class="event-carousel-img portrait-img">
-                                
-                                <!-- Student -->
-                                <div class="year-marker">
-                                    <span class="year-label">Student</span>
-                                </div>
-                                <img src="Ride.ADNU/STUDENT_HOMESCREEN.jpg" alt="Student Home" class="event-carousel-img portrait-img">
-                                <img src="Ride.ADNU/STUDENT_RIDESCREEN.jpg" alt="Student Ride" class="event-carousel-img portrait-img">
-                                <img src="Ride.ADNU/STUDENT_MESSAGESCREEN.jpg" alt="Student Message" class="event-carousel-img portrait-img">
-                                <img src="Ride.ADNU/STUDENT_PROFILESCREEN.jpg" alt="Student Profile" class="event-carousel-img portrait-img">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-</section>
+    </section>
 
     <!-- Projects Section -->
     <section id="projects" class="section">
@@ -335,13 +397,15 @@
                     <img src="Projects/University Web Portal/Home.jpg" alt="University Web Portal">
                     <div class="project-content">
                         <h3>University Web Portal</h3>
-                        <p>A comprehensive student dashboard providing access to schedules, grades, financial statements, and profile updates.</p>
+                        <p>A comprehensive student dashboard providing access to schedules, grades, financial
+                            statements, and profile updates.</p>
                         <div class="project-tags">
                             <span class="tag">Web Dev</span>
                             <span class="tag">Node.js</span>
                         </div>
                         <div class="project-actions">
-                            <a href="https://github.com/8DUINOide/University-Web-Portal" target="_blank" class="btn btn-outline">
+                            <a href="https://github.com/8DUINOide/University-Web-Portal" target="_blank"
+                                class="btn btn-outline">
                                 <i class="fab fa-github"></i> View on GitHub
                             </a>
                             <a href="#" class="btn btn-primary">Live Demo</a>
@@ -354,13 +418,15 @@
                     <img src="Projects/BINI Music Streaming/BINI.jpg" alt="BINI Music">
                     <div class="project-content">
                         <h3>BINI Music Streaming</h3>
-                        <p>A mobile music streaming app dedicated to BINI, featuring Spotify-like controls and background playback.</p>
+                        <p>A mobile music streaming app dedicated to BINI, featuring Spotify-like controls and
+                            background playback.</p>
                         <div class="project-tags">
                             <span class="tag">Mobile App</span>
                             <span class="tag">Kotlin</span>
                         </div>
                         <div class="project-actions">
-                            <a href="https://github.com/8DUINOide/BINI-Mobile-Music-App" target="_blank" class="btn btn-outline">
+                            <a href="https://github.com/8DUINOide/BINI-Mobile-Music-App" target="_blank"
+                                class="btn btn-outline">
                                 <i class="fab fa-github"></i> View on GitHub
                             </a>
                             <a href="#" class="btn btn-primary">Live Demo</a>
@@ -373,13 +439,15 @@
                     <img src="Projects/ARDUINO-PROJECTS/TinkerCad Projects/TinkerCad Projects.png" alt="Arduino">
                     <div class="project-content">
                         <h3>Arduino Projects</h3>
-                        <p>A collection of 10+ hardware-software integration projects including robots, RFID systems, and sensors.</p>
+                        <p>A collection of 10+ hardware-software integration projects including robots, RFID systems,
+                            and sensors.</p>
                         <div class="project-tags">
                             <span class="tag">IoT</span>
                             <span class="tag">Hardware</span>
                         </div>
                         <div class="project-actions">
-                            <a href="https://github.com/8DUINOide/ARDUINO-PROJECTS" target="_blank" class="btn btn-outline">
+                            <a href="https://github.com/8DUINOide/ARDUINO-PROJECTS" target="_blank"
+                                class="btn btn-outline">
                                 <i class="fab fa-github"></i> View on GitHub
                             </a>
                             <a href="#" class="btn btn-primary">Live Demo</a>
@@ -392,13 +460,15 @@
                     <img src="Projects/Expense Tracking System/homepage.png" alt="Expense Tracker">
                     <div class="project-content">
                         <h3>Expense Tracking System</h3>
-                        <p>A robust backend system for financial management featuring JWT authentication and budget workflows.</p>
+                        <p>A robust backend system for financial management featuring JWT authentication and budget
+                            workflows.</p>
                         <div class="project-tags">
                             <span class="tag">Backend</span>
                             <span class="tag">Spring Boot</span>
                         </div>
                         <div class="project-actions">
-                            <a href="https://github.com/8DUINOide/Expense_Tracking_Backend" target="_blank" class="btn btn-outline">
+                            <a href="https://github.com/8DUINOide/Expense_Tracking_Backend" target="_blank"
+                                class="btn btn-outline">
                                 <i class="fab fa-github"></i> View on GitHub
                             </a>
                             <a href="#" class="btn btn-primary">Live Demo</a>
@@ -411,13 +481,15 @@
                     <img src="Projects/Brick Breaker CpE/BrickBreaker.jpg" alt="Brick Breaker">
                     <div class="project-content">
                         <h3>Brick Breaker CpE</h3>
-                        <p>An educational arcade game where players break bricks representing computer engineering subjects.</p>
+                        <p>An educational arcade game where players break bricks representing computer engineering
+                            subjects.</p>
                         <div class="project-tags">
                             <span class="tag">Game Dev</span>
                             <span class="tag">React Native</span>
                         </div>
                         <div class="project-actions">
-                            <a href="https://github.com/8DUINOide/Brick-Breaker-App" target="_blank" class="btn btn-outline">
+                            <a href="https://github.com/8DUINOide/Brick-Breaker-App" target="_blank"
+                                class="btn btn-outline">
                                 <i class="fab fa-github"></i> View on GitHub
                             </a>
                             <a href="#" class="btn btn-primary">Live Demo</a>
@@ -430,13 +502,15 @@
                     <img src="Projects/TicTac Toe/App icon.png" alt="Tic Tac Toe">
                     <div class="project-content">
                         <h3>TicTac Toe</h3>
-                        <p>A real-time multiplayer Tic-Tac-Toe game for Android with online matchmaking using room codes.</p>
+                        <p>A real-time multiplayer Tic-Tac-Toe game for Android with online matchmaking using room
+                            codes.</p>
                         <div class="project-tags">
                             <span class="tag">Android</span>
                             <span class="tag">Firebase</span>
                         </div>
                         <div class="project-actions">
-                            <a href="https://github.com/8DUINOide/TicTacToe-App" target="_blank" class="btn btn-outline">
+                            <a href="https://github.com/8DUINOide/TicTacToe-App" target="_blank"
+                                class="btn btn-outline">
                                 <i class="fab fa-github"></i> View on GitHub
                             </a>
                             <a href="#" class="btn btn-primary">Live Demo</a>
@@ -463,14 +537,23 @@
                                     <p style="margin: 0;">REVLV Solutions Inc.</p>
                                 </div>
                             </div>
-                            <div class="certificate-item" onclick="openCertificateLightbox('Internships/240 hours OJT at REVLV Solutions.pdf')" style="padding: 15px 25px; margin: 0; min-width: 180px;">
+                            <div class="certificate-item"
+                                onclick="openCertificateLightbox('Internships/240 hours OJT at REVLV Solutions.pdf')"
+                                style="padding: 15px 25px; margin: 0; min-width: 180px;">
                                 <i class="fas fa-file-pdf" style="font-size: 2rem; margin-bottom: 10px;"></i>
                                 <h4 style="font-size: 1rem; margin-bottom: 5px;">240 Hours OJT Completion</h4>
                                 <p style="font-size: 0.8rem; margin: 0;">View Certificate</p>
                             </div>
                         </div>
                         <div class="internship-description">
-                            <p>As a Backend Developer Intern at REVLV Solutions Inc., I developed ExpenSEEs-API, a RESTful backend for expense tracking using Spring Boot, Java, and PostgreSQL. My responsibilities included implementing user management, budget operations, expense tracking, and liquidation reports. I also integrated JWT-based authentication and Spring Security for role-based access control, configured and tested API endpoints using Postman and IntelliJ IDEA, and collaborated with frontend developers to integrate the API with the Admin Dashboard and mobile app. Finally, I deployed the backend on a DigitalOcean server, ensuring CORS configuration for seamless frontend connectivity.</p>
+                            <p>As a Backend Developer Intern at REVLV Solutions Inc., I developed ExpenSEEs-API, a
+                                RESTful backend for expense tracking using Spring Boot, Java, and PostgreSQL. My
+                                responsibilities included implementing user management, budget operations, expense
+                                tracking, and liquidation reports. I also integrated JWT-based authentication and Spring
+                                Security for role-based access control, configured and tested API endpoints using
+                                Postman and IntelliJ IDEA, and collaborated with frontend developers to integrate the
+                                API with the Admin Dashboard and mobile app. Finally, I deployed the backend on a
+                                DigitalOcean server, ensuring CORS configuration for seamless frontend connectivity.</p>
                         </div>
                         <div class="internship-gallery-wrapper">
                             <div class="internship-gallery">
@@ -508,7 +591,8 @@
                             </div>
                             <div>
                                 <h3>Breadboarding Competition</h3>
-                                <p>My 4-year journey from learning basics to mentoring juniors in hardware circuits and electronics</p>
+                                <p>My 4-year journey from learning basics to mentoring juniors in hardware circuits and
+                                    electronics</p>
                             </div>
                         </div>
                     </div>
@@ -518,40 +602,59 @@
                             <div class="year-marker">
                                 <span class="year-label">First Year</span>
                             </div>
-                            <img src="Events/Breadboarding/1st year/1.jpg" alt="Breadboarding" class="event-carousel-img">
-                            <img src="Events/Breadboarding/1st year/2.jpg" alt="Breadboarding" class="event-carousel-img">
-                            <img src="Events/Breadboarding/1st year/3.jpg" alt="Breadboarding" class="event-carousel-img">
-                            <img src="Events/Breadboarding/1st year/4.jpg" alt="Breadboarding" class="event-carousel-img">
-                            <img src="Events/Breadboarding/1st year/5.jpg" alt="Breadboarding" class="event-carousel-img">
-                            
+                            <img src="Events/Breadboarding/1st year/1.jpg" alt="Breadboarding"
+                                class="event-carousel-img">
+                            <img src="Events/Breadboarding/1st year/2.jpg" alt="Breadboarding"
+                                class="event-carousel-img">
+                            <img src="Events/Breadboarding/1st year/3.jpg" alt="Breadboarding"
+                                class="event-carousel-img">
+                            <img src="Events/Breadboarding/1st year/4.jpg" alt="Breadboarding"
+                                class="event-carousel-img">
+                            <img src="Events/Breadboarding/1st year/5.jpg" alt="Breadboarding"
+                                class="event-carousel-img">
+
                             <!-- Second Year -->
                             <div class="year-marker">
                                 <span class="year-label">Second Year</span>
                             </div>
-                            <img src="Events/Breadboarding/2nd year/1.jpg" alt="Breadboarding" class="event-carousel-img">
-                            <img src="Events/Breadboarding/2nd year/2.jpg" alt="Breadboarding" class="event-carousel-img">
-                            <img src="Events/Breadboarding/2nd year/3.jpg" alt="Breadboarding" class="event-carousel-img">
-                            <img src="Events/Breadboarding/2nd year/4.jpg" alt="Breadboarding" class="event-carousel-img">
-                            <img src="Events/Breadboarding/2nd year/5.jpg" alt="Breadboarding" class="event-carousel-img">
-                            <img src="Events/Breadboarding/2nd year/6.jpg" alt="Breadboarding" class="event-carousel-img">
-                            
+                            <img src="Events/Breadboarding/2nd year/1.jpg" alt="Breadboarding"
+                                class="event-carousel-img">
+                            <img src="Events/Breadboarding/2nd year/2.jpg" alt="Breadboarding"
+                                class="event-carousel-img">
+                            <img src="Events/Breadboarding/2nd year/3.jpg" alt="Breadboarding"
+                                class="event-carousel-img">
+                            <img src="Events/Breadboarding/2nd year/4.jpg" alt="Breadboarding"
+                                class="event-carousel-img">
+                            <img src="Events/Breadboarding/2nd year/5.jpg" alt="Breadboarding"
+                                class="event-carousel-img">
+                            <img src="Events/Breadboarding/2nd year/6.jpg" alt="Breadboarding"
+                                class="event-carousel-img">
+
                             <!-- Third Year -->
                             <div class="year-marker">
                                 <span class="year-label">Third Year</span>
                             </div>
-                            <img src="Events/Breadboarding/3rd year/1.jpg" alt="Breadboarding" class="event-carousel-img">
-                            <img src="Events/Breadboarding/3rd year/2.jpg" alt="Breadboarding" class="event-carousel-img">
-                            <img src="Events/Breadboarding/3rd year/3.jpg" alt="Breadboarding" class="event-carousel-img">
-                            <img src="Events/Breadboarding/3rd year/4.jpg" alt="Breadboarding" class="event-carousel-img">
-                            
+                            <img src="Events/Breadboarding/3rd year/1.jpg" alt="Breadboarding"
+                                class="event-carousel-img">
+                            <img src="Events/Breadboarding/3rd year/2.jpg" alt="Breadboarding"
+                                class="event-carousel-img">
+                            <img src="Events/Breadboarding/3rd year/3.jpg" alt="Breadboarding"
+                                class="event-carousel-img">
+                            <img src="Events/Breadboarding/3rd year/4.jpg" alt="Breadboarding"
+                                class="event-carousel-img">
+
                             <!-- Fourth Year -->
                             <div class="year-marker">
                                 <span class="year-label">Fourth Year</span>
                             </div>
-                            <img src="Events/Breadboarding/4th year/1.jpg" alt="Breadboarding" class="event-carousel-img">
-                            <img src="Events/Breadboarding/4th year/2.jpg" alt="Breadboarding" class="event-carousel-img">
-                            <img src="Events/Breadboarding/4th year/3.jpg" alt="Breadboarding" class="event-carousel-img">
-                            <img src="Events/Breadboarding/4th year/4.jpg" alt="Breadboarding" class="event-carousel-img">
+                            <img src="Events/Breadboarding/4th year/1.jpg" alt="Breadboarding"
+                                class="event-carousel-img">
+                            <img src="Events/Breadboarding/4th year/2.jpg" alt="Breadboarding"
+                                class="event-carousel-img">
+                            <img src="Events/Breadboarding/4th year/3.jpg" alt="Breadboarding"
+                                class="event-carousel-img">
+                            <img src="Events/Breadboarding/4th year/4.jpg" alt="Breadboarding"
+                                class="event-carousel-img">
                         </div>
                     </div>
                 </div>
@@ -565,22 +668,33 @@
                             </div>
                             <div>
                                 <h3>LAAD Software Festival</h3>
-                                <p>Annual software development showcase featuring innovative projects and coding competitions</p>
+                                <p>Annual software development showcase featuring innovative projects and coding
+                                    competitions</p>
                             </div>
                         </div>
                     </div>
                     <div class="event-images-scroll">
                         <div class="event-carousel">
-                            <img src="Events/LAAD Software Festival/1.jpg" alt="LAAD Festival" class="event-carousel-img">
-                            <img src="Events/LAAD Software Festival/2.jpg" alt="LAAD Festival" class="event-carousel-img">
-                            <img src="Events/LAAD Software Festival/3.jpg" alt="LAAD Festival" class="event-carousel-img">
-                            <img src="Events/LAAD Software Festival/4.jpg" alt="LAAD Festival" class="event-carousel-img">
-                            <img src="Events/LAAD Software Festival/5.jpg" alt="LAAD Festival" class="event-carousel-img">
-                            <img src="Events/LAAD Software Festival/6.jpg" alt="LAAD Festival" class="event-carousel-img">
-                            <img src="Events/LAAD Software Festival/7.jpg" alt="LAAD Festival" class="event-carousel-img">
-                            <img src="Events/LAAD Software Festival/8.jpg" alt="LAAD Festival" class="event-carousel-img">
-                            <img src="Events/LAAD Software Festival/9.jpg" alt="LAAD Festival" class="event-carousel-img">
-                            <img src="Events/LAAD Software Festival/10.jpg" alt="LAAD Festival" class="event-carousel-img">
+                            <img src="Events/LAAD Software Festival/1.jpg" alt="LAAD Festival"
+                                class="event-carousel-img">
+                            <img src="Events/LAAD Software Festival/2.jpg" alt="LAAD Festival"
+                                class="event-carousel-img">
+                            <img src="Events/LAAD Software Festival/3.jpg" alt="LAAD Festival"
+                                class="event-carousel-img">
+                            <img src="Events/LAAD Software Festival/4.jpg" alt="LAAD Festival"
+                                class="event-carousel-img">
+                            <img src="Events/LAAD Software Festival/5.jpg" alt="LAAD Festival"
+                                class="event-carousel-img">
+                            <img src="Events/LAAD Software Festival/6.jpg" alt="LAAD Festival"
+                                class="event-carousel-img">
+                            <img src="Events/LAAD Software Festival/7.jpg" alt="LAAD Festival"
+                                class="event-carousel-img">
+                            <img src="Events/LAAD Software Festival/8.jpg" alt="LAAD Festival"
+                                class="event-carousel-img">
+                            <img src="Events/LAAD Software Festival/9.jpg" alt="LAAD Festival"
+                                class="event-carousel-img">
+                            <img src="Events/LAAD Software Festival/10.jpg" alt="LAAD Festival"
+                                class="event-carousel-img">
                         </div>
                     </div>
                 </div>
@@ -594,7 +708,8 @@
                             </div>
                             <div>
                                 <h3>Packethacks 2024</h3>
-                                <p>An ideation competition where we pitched innovative solutions to address societal challenges, successfully advancing to the final round</p>
+                                <p>An ideation competition where we pitched innovative solutions to address societal
+                                    challenges, successfully advancing to the final round</p>
                             </div>
                         </div>
                     </div>
@@ -648,52 +763,59 @@
     <section id="seminars" class="section">
         <div class="container">
             <h2 class="section-title">Seminars & Fieldtrips</h2>
-            
+
             <!-- Seminars (Certificates) -->
             <div class="subsection">
                 <h3 class="subsection-title">Seminars & Certifications</h3>
                 <div class="seminars-certificates-grid">
-                    <div class="certificate-item" onclick="openCertificateLightbox('Seminars and Fieldtrips/Cybersecurity Awareness.pdf')">
+                    <div class="certificate-item"
+                        onclick="openCertificateLightbox('Seminars and Fieldtrips/Cybersecurity Awareness.pdf')">
                         <i class="fas fa-shield-alt"></i>
                         <h4>Cybersecurity Awareness</h4>
                         <p>View Certificate</p>
                     </div>
-                    <div class="certificate-item" onclick="openCertificateLightbox('Seminars and Fieldtrips/Code, Click, Connect - Basic Web Automation with Playwright.pdf')">
+                    <div class="certificate-item"
+                        onclick="openCertificateLightbox('Seminars and Fieldtrips/Code, Click, Connect - Basic Web Automation with Playwright.pdf')">
                         <i class="fas fa-code"></i>
                         <h4>Web Automation with Playwright</h4>
                         <p>View Certificate</p>
                     </div>
-                    <div class="certificate-item" onclick="openCertificateLightbox('Seminars and Fieldtrips/Continuous Integration and Deployment using GitLab.pdf')">
+                    <div class="certificate-item"
+                        onclick="openCertificateLightbox('Seminars and Fieldtrips/Continuous Integration and Deployment using GitLab.pdf')">
                         <i class="fab fa-gitlab"></i>
                         <h4>CI/CD with GitLab</h4>
                         <p>View Certificate</p>
                     </div>
-                    <div class="certificate-item" onclick="openCertificateLightbox('Seminars and Fieldtrips/Cybersecurity.pdf')">
+                    <div class="certificate-item"
+                        onclick="openCertificateLightbox('Seminars and Fieldtrips/Cybersecurity.pdf')">
                         <i class="fas fa-lock"></i>
                         <h4>Cybersecurity</h4>
                         <p>View Certificate</p>
                     </div>
-                    <div class="certificate-item" onclick="openCertificateLightbox('Seminars and Fieldtrips/Smart Transport Surveys - Capturing and Visualizing Travel Time and Delay Data.pdf')">
+                    <div class="certificate-item"
+                        onclick="openCertificateLightbox('Seminars and Fieldtrips/Smart Transport Surveys - Capturing and Visualizing Travel Time and Delay Data.pdf')">
                         <i class="fas fa-traffic-light"></i>
                         <h4>Smart Transport Surveys</h4>
                         <p>View Certificate</p>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Field Trips -->
             <div class="subsection">
                 <h3 class="subsection-title">Field Trips & Industrial Visits</h3>
                 <div class="fieldtrips-gallery">
                     <div class="gallery-item" onclick="openProjectGallery('Field Trip Experience')">
-                        <img src="Seminars and Fieldtrips/BRP Hydrographer Presbitero.jpg" alt="BRP Hydrographer Presbitero" class="gallery-img">
+                        <img src="Seminars and Fieldtrips/BRP Hydrographer Presbitero.jpg"
+                            alt="BRP Hydrographer Presbitero" class="gallery-img">
                         <div class="gallery-caption">
                             <h4>BRP Hydrographer Presbitero</h4>
                             <p>Marine vessel visit</p>
                         </div>
                     </div>
                     <div class="gallery-item" onclick="openProjectGallery('Field Trip Experience')">
-                        <img src="Seminars and Fieldtrips/Vessel Traffic Management System.jpg" alt="Vessel Traffic Management System" class="gallery-img">
+                        <img src="Seminars and Fieldtrips/Vessel Traffic Management System.jpg"
+                            alt="Vessel Traffic Management System" class="gallery-img">
                         <div class="gallery-caption">
                             <h4>Vessel Traffic Management</h4>
                             <p>Port authority systems</p>
@@ -714,7 +836,8 @@
                         </div>
                     </div>
                     <div class="gallery-item" onclick="openProjectGallery('Field Trip Experience')">
-                        <img src="Seminars and Fieldtrips/Law Enforcement Department.jpg" alt="Law Enforcement Department" class="gallery-img">
+                        <img src="Seminars and Fieldtrips/Law Enforcement Department.jpg"
+                            alt="Law Enforcement Department" class="gallery-img">
                         <div class="gallery-caption">
                             <h4>Law Enforcement Department</h4>
                             <p>Government facility visit</p>
@@ -740,57 +863,77 @@
                 <div class="cert-item">
                     <img src="cisco_logo.jpg" alt="Cisco Logo" class="cert-logo">
                     <h3>Data Analytics Essentials</h3>
-                    <a href="#" onclick="openCertificateLightbox('Certifications/Data Analytics Essentials.pdf'); return false;" class="btn btn-outline">View Certificate</a>
+                    <a href="#"
+                        onclick="openCertificateLightbox('Certifications/Data Analytics Essentials.pdf'); return false;"
+                        class="btn btn-outline">View Certificate</a>
                 </div>
                 <div class="cert-item">
                     <img src="cisco_logo.jpg" alt="Cisco Logo" class="cert-logo">
                     <h3>Ethical Hacker</h3>
-                    <a href="#" onclick="openCertificateLightbox('Certifications/Ethical Hacker.pdf'); return false;" class="btn btn-outline">View Certificate</a>
+                    <a href="#" onclick="openCertificateLightbox('Certifications/Ethical Hacker.pdf'); return false;"
+                        class="btn btn-outline">View Certificate</a>
                 </div>
                 <div class="cert-item">
                     <img src="cisco_logo.jpg" alt="Cisco Logo" class="cert-logo">
                     <h3>Introduction to Cybersecurity</h3>
-                    <a href="#" onclick="openCertificateLightbox('Certifications/Introduction to Cybersecurity.pdf'); return false;" class="btn btn-outline">View Certificate</a>
+                    <a href="#"
+                        onclick="openCertificateLightbox('Certifications/Introduction to Cybersecurity.pdf'); return false;"
+                        class="btn btn-outline">View Certificate</a>
                 </div>
                 <div class="cert-item">
                     <img src="cisco_logo.jpg" alt="Cisco Logo" class="cert-logo">
                     <h3>Introduction to IoT and Digital Transformation</h3>
-                    <a href="#" onclick="openCertificateLightbox('Certifications/Introduction to IoT and Digital Transformation.pdf'); return false;" class="btn btn-outline">View Certificate</a>
+                    <a href="#"
+                        onclick="openCertificateLightbox('Certifications/Introduction to IoT and Digital Transformation.pdf'); return false;"
+                        class="btn btn-outline">View Certificate</a>
                 </div>
                 <div class="cert-item">
                     <img src="cisco_logo.jpg" alt="Cisco Logo" class="cert-logo">
                     <h3>Junior Cybersecurity Analyst</h3>
-                    <a href="#" onclick="openCertificateLightbox('Certifications/Junior Cybersecurity Analyst.pdf'); return false;" class="btn btn-outline">View Certificate</a>
+                    <a href="#"
+                        onclick="openCertificateLightbox('Certifications/Junior Cybersecurity Analyst.pdf'); return false;"
+                        class="btn btn-outline">View Certificate</a>
                 </div>
                 <div class="cert-item">
                     <img src="ndg_logo.jpg" alt="NDG Logo" class="cert-logo">
                     <h3>NDG Linux Essentials</h3>
-                    <a href="#" onclick="openCertificateLightbox('Certifications/NDG Linux Essentials.pdf'); return false;" class="btn btn-outline">View Certificate</a>
+                    <a href="#"
+                        onclick="openCertificateLightbox('Certifications/NDG Linux Essentials.pdf'); return false;"
+                        class="btn btn-outline">View Certificate</a>
                 </div>
                 <div class="cert-item">
                     <img src="ndg_logo.jpg" alt="NDG Logo" class="cert-logo">
                     <h3>NDG Linux Unhatched</h3>
-                    <a href="#" onclick="openCertificateLightbox('Certifications/NDG Linux Unhatched.pdf'); return false;" class="btn btn-outline">View Certificate</a>
+                    <a href="#"
+                        onclick="openCertificateLightbox('Certifications/NDG Linux Unhatched.pdf'); return false;"
+                        class="btn btn-outline">View Certificate</a>
                 </div>
                 <div class="cert-item">
                     <img src="cisco_logo.jpg" alt="Cisco Logo" class="cert-logo">
                     <h3>Network Support and Security</h3>
-                    <a href="#" onclick="openCertificateLightbox('Certifications/Network Support and Security.pdf'); return false;" class="btn btn-outline">View Certificate</a>
+                    <a href="#"
+                        onclick="openCertificateLightbox('Certifications/Network Support and Security.pdf'); return false;"
+                        class="btn btn-outline">View Certificate</a>
                 </div>
                 <div class="cert-item">
                     <img src="cisco_logo.jpg" alt="Cisco Logo" class="cert-logo">
                     <h3>Programming Essentials in C++</h3>
-                    <a href="#" onclick="openCertificateLightbox('Certifications/Programming Essentials in C++.pdf'); return false;" class="btn btn-outline">View Certificate</a>
+                    <a href="#"
+                        onclick="openCertificateLightbox('Certifications/Programming Essentials in C++.pdf'); return false;"
+                        class="btn btn-outline">View Certificate</a>
                 </div>
                 <div class="cert-item">
                     <img src="cisco_logo.jpg" alt="Cisco Logo" class="cert-logo">
                     <h3>Programming Essentials in Python</h3>
-                    <a href="#" onclick="openCertificateLightbox('Certifications/Programming Essentials in Python.pdf'); return false;" class="btn btn-outline">View Certificate</a>
+                    <a href="#"
+                        onclick="openCertificateLightbox('Certifications/Programming Essentials in Python.pdf'); return false;"
+                        class="btn btn-outline">View Certificate</a>
                 </div>
                 <div class="cert-item">
                     <img src="cisco_logo.jpg" alt="Cisco Logo" class="cert-logo">
                     <h3>Network Security</h3>
-                    <a href="#" onclick="openCertificateLightbox('Certifications/Network_Security.pdf'); return false;" class="btn btn-outline">View Certificate</a>
+                    <a href="#" onclick="openCertificateLightbox('Certifications/Network_Security.pdf'); return false;"
+                        class="btn btn-outline">View Certificate</a>
                 </div>
             </div>
         </div>
@@ -802,7 +945,8 @@
             <h2 class="section-title">Contact</h2>
             <div class="contact-wrapper">
                 <div class="contact-form-section">
-                    <p>I'm always interested in hearing about new opportunities and exciting projects. Feel free to reach out!</p>
+                    <p>I'm always interested in hearing about new opportunities and exciting projects. Feel free to
+                        reach out!</p>
                     <form id="contact-form">
                         <div class="form-group">
                             <label for="name">> name</label>
@@ -814,7 +958,8 @@
                         </div>
                         <div class="form-group">
                             <label for="message">> message</label>
-                            <textarea id="message" name="message" placeholder="Your message..." rows="5" required></textarea>
+                            <textarea id="message" name="message" placeholder="Your message..." rows="5"
+                                required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">TRANSMIT</button>
                     </form>
@@ -822,8 +967,10 @@
                 <div class="external-channels">
                     <p>EXTERNAL CHANNELS</p>
                     <a href="tel:09772153941" class="btn btn-secondary"><i class="fas fa-phone"></i> 09772153941</a>
-                    <a href="https://github.com/8DUINOide" target="_blank" class="btn btn-secondary"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="https://www.linkedin.com/in/al-francis-paz-32424224a/" target="_blank" class="btn btn-secondary"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://github.com/8DUINOide" target="_blank" class="btn btn-secondary"><i
+                            class="fab fa-github"></i> GitHub</a>
+                    <a href="https://www.linkedin.com/in/al-francis-paz-32424224a/" target="_blank"
+                        class="btn btn-secondary"><i class="fab fa-linkedin"></i> LinkedIn</a>
                 </div>
             </div>
         </div>
