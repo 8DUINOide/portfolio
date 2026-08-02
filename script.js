@@ -844,7 +844,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Add click handlers to event carousel images
+    // Initialize carousels (cloning must happen BEFORE attaching click handlers)
+    initCarousels();
+
+    // Add click handlers to event carousel images (including clones)
     const carouselImages = document.querySelectorAll('.event-carousel-img');
     carouselImages.forEach(img => {
         img.addEventListener('click', function () {
@@ -853,7 +856,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Add click handlers to internship gallery images
+    // Add click handlers to internship gallery images (including clones)
     const internshipImages = document.querySelectorAll('.internship-gallery .gallery-img');
     internshipImages.forEach(img => {
         img.addEventListener('click', function () {
@@ -861,9 +864,6 @@ document.addEventListener('DOMContentLoaded', () => {
             openLightbox(src);
         });
     });
-
-    // Initialize carousels
-    initCarousels();
 
     // Initialize page
     highlightNavigation();

@@ -1510,9 +1510,9 @@ footer p {
 }
 
 .gallery-nav-btn {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -1527,12 +1527,12 @@ footer p {
 
 .gallery-nav-btn:hover {
     background: var(--accent-color);
-    color: var(--btn-text);
+    color: #0a0a0a;
     transform: scale(1.1);
 }
 
 .gallery-counter {
-    color: var(--text-primary);
+    color: #ffffff;
     font-size: 14px;
     font-weight: 500;
     min-width: 50px;
