@@ -178,8 +178,9 @@
                     </div>
                     <div class="github-heatmap-body">
                         <div class="github-heatmap-wrapper">
-                            <img src="https://github-contributions-api.deno.dev/8DUINOide.svg?y=2026" alt="GitHub Contribution Heatmap"
-                                id="github-heatmap-img" loading="lazy">
+                            <div id="github-heatmap-grid" class="github-heatmap-grid">
+                                <p style="color: var(--text-secondary); font-size: 0.8rem;">Loading contribution data...</p>
+                            </div>
                         </div>
                         <div class="github-year-pills" id="github-year-pills">
                             <button class="github-year-pill active" onclick="selectYear(2026)">2026</button>
@@ -1128,17 +1129,14 @@
             }
         })();
 
-        // Dynamically change the GitHub contribution grid year and total count
+        // Dynamically render the GitHub contribution grid from real API data
         async function selectYear(year) {
             const username = '8DUINOide';
             
-            // 1. Update the grid image source to the Deno API which supports past years
-            document.getElementById('github-heatmap-img').src = `https://github-contributions-api.deno.dev/${username}.svg?y=${year}`;
-            
-            // 2. Update the title
+            // 1. Update the title
             document.getElementById('gh-heatmap-title').innerHTML = `Contributions in ${year}`;
             
-            // 3. Update the active state on the buttons
+            // 2. Update the active state on the year buttons
             const pills = document.querySelectorAll('.github-year-pill');
             pills.forEach(pill => {
                 if (pill.innerText.trim() == year) {
@@ -1148,24 +1146,117 @@
                 }
             });
 
-            // 4. Fetch the dynamic total contributions for this specific year!
+            // 3. Update the contribution count (show loading)
             const contributionsStat = document.getElementById('gh-contributions');
-            contributionsStat.textContent = '...'; // Loading state
-            
+            contributionsStat.textContent = '...';
+
+            // 4. Show loading state in the grid
+            const gridContainer = document.getElementById('github-heatmap-grid');
+            gridContainer.innerHTML = '<p style="color: var(--text-secondary); font-size: 0.8rem;">Loading...</p>';
+
             try {
+                // Fetch real contribution data from the working jogruber API
                 const res = await fetch(`https://github-contributions-api.jogruber.de/v4/${username}?y=${year}`);
-                if (res.ok) {
-                    const data = await res.json();
-                    // The API returns { total: { "2026": 583, ... } }
-                    const totalForYear = data.total[year] || 0;
-                    contributionsStat.textContent = totalForYear.toLocaleString();
-                } else {
-                    contributionsStat.textContent = '—';
-                }
+                if (!res.ok) throw new Error('API error');
+                const data = await res.json();
+
+                // Update total contributions number
+                const totalForYear = data.total[year] || 0;
+                contributionsStat.textContent = totalForYear.toLocaleString();
+
+                // Update the heatmap title with the count
+                document.getElementById('gh-heatmap-title').innerHTML = 
+                    `${totalForYear.toLocaleString()} contributions in ${year}`;
+
+                // 5. Render the grid from the daily data
+                renderContributionGrid(data.contributions, gridContainer, year);
+
             } catch (e) {
-                console.error("Error fetching dynamic contributions:", e);
+                console.error('Error fetching contributions:', e);
                 contributionsStat.textContent = '—';
+                gridContainer.innerHTML = '<p style="color: var(--text-secondary); font-size: 0.8rem;">Failed to load data.</p>';
             }
+        }
+
+        // Render a GitHub-style contribution grid from daily data
+        function renderContributionGrid(contributions, container, year) {
+            container.innerHTML = '';
+
+            // Month labels row
+            const monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+            const dayLabels = ['', 'Mon', '', 'Wed', '', 'Fri', ''];
+
+            // Group contributions into weeks (columns of 7 days)
+            // Each week starts on Sunday (day 0)
+            const firstDate = new Date(contributions[0].date);
+            const firstDayOfWeek = firstDate.getDay(); // 0=Sun, 1=Mon, ...
+
+            // Pad the beginning with empty cells to align to the correct day
+            const paddedContributions = [];
+            for (let i = 0; i < firstDayOfWeek; i++) {
+                paddedContributions.push(null);
+            }
+            contributions.forEach(c => paddedContributions.push(c));
+
+            // Split into weeks (columns of 7)
+            const weeks = [];
+            for (let i = 0; i < paddedContributions.length; i += 7) {
+                weeks.push(paddedContributions.slice(i, i + 7));
+            }
+
+            // Build the grid table
+            const table = document.createElement('table');
+            table.className = 'contrib-table';
+
+            // Month header row
+            const monthRow = document.createElement('tr');
+            const emptyTh = document.createElement('td');
+            emptyTh.className = 'contrib-day-label';
+            monthRow.appendChild(emptyTh);
+
+            // Track which months appear above which weeks
+            let lastMonth = -1;
+            weeks.forEach((week) => {
+                const td = document.createElement('td');
+                td.className = 'contrib-month-label';
+                // Find the first real day in this week
+                const realDay = week.find(d => d !== null);
+                if (realDay) {
+                    const m = new Date(realDay.date).getMonth();
+                    if (m !== lastMonth) {
+                        td.textContent = monthNames[m];
+                        lastMonth = m;
+                    }
+                }
+                monthRow.appendChild(td);
+            });
+            table.appendChild(monthRow);
+
+            // 7 rows for each day of the week (Sun-Sat)
+            for (let dayIndex = 0; dayIndex < 7; dayIndex++) {
+                const tr = document.createElement('tr');
+                
+                // Day label
+                const labelTd = document.createElement('td');
+                labelTd.className = 'contrib-day-label';
+                labelTd.textContent = dayLabels[dayIndex];
+                tr.appendChild(labelTd);
+
+                // One cell per week
+                weeks.forEach(week => {
+                    const td = document.createElement('td');
+                    const cell = week[dayIndex];
+                    if (cell) {
+                        td.className = 'contrib-cell contrib-lvl-' + cell.level;
+                        td.title = `${cell.count} contribution${cell.count !== 1 ? 's' : ''} on ${cell.date}`;
+                    } else {
+                        td.className = 'contrib-cell contrib-empty';
+                    }
+                    tr.appendChild(td);
+                });
+                table.appendChild(tr);
+            }
+            container.appendChild(table);
         }
 
         // Fetch initial data for current year on load
