@@ -1,6 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Project galleries data structure
     const projectGalleries = {
+        'JobAi': [
+            'Projects/Ongoing Projects/JobAi/1. JobAi@AppBuildersPH.jpg',
+            'Projects/Ongoing Projects/JobAi/2. Login Screen.jpg',
+            'Projects/Ongoing Projects/JobAi/3. Upload your Resume.jpg',
+            'Projects/Ongoing Projects/JobAi/4. Portfolio or LinkedIn.jpg',
+            'Projects/Ongoing Projects/JobAi/5. Target Roles.jpg',
+            'Projects/Ongoing Projects/JobAi/6. Ready to Launch.jpg',
+            'Projects/Ongoing Projects/JobAi/7. Profile Screen.jpg',
+            'Projects/Ongoing Projects/JobAi/8. Home Screen.jpg',
+            'Projects/Ongoing Projects/JobAi/9. Job Discovery Screen.jpg',
+            'Projects/Ongoing Projects/JobAi/10. Paste Job Description.jpg',
+            'Projects/Ongoing Projects/JobAi/11. Tailor Resume.jpg',
+            'Projects/Ongoing Projects/JobAi/12. ATS Friendly Resume.jpg',
+            'Projects/Ongoing Projects/JobAi/13. Application Tracker.jpg',
+            'Projects/Ongoing Projects/JobAi/14. Update Status.jpg'
+        ],
         'University Web Portal': [
             'Projects/University Web Portal/Login.jpg',
             'Projects/University Web Portal/Home.jpg',
