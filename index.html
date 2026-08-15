@@ -178,7 +178,7 @@
                     </div>
                     <div class="github-heatmap-body">
                         <div class="github-heatmap-wrapper">
-                            <img src="https://ghchart.rshah.org/2026/00f2ea/8DUINOide" alt="GitHub Contribution Heatmap"
+                            <img src="https://github-contributions-api.deno.dev/8DUINOide.svg?y=2026" alt="GitHub Contribution Heatmap"
                                 id="github-heatmap-img" loading="lazy">
                         </div>
                         <div class="github-year-pills" id="github-year-pills">
@@ -1131,10 +1131,9 @@
         // Dynamically change the GitHub contribution grid year and total count
         async function selectYear(year) {
             const username = '8DUINOide';
-            const hexColor = '00f2ea'; // Teal color to match your theme
             
-            // 1. Update the grid image source
-            document.getElementById('github-heatmap-img').src = `https://ghchart.rshah.org/${year}/${hexColor}/${username}`;
+            // 1. Update the grid image source to the Deno API which supports past years
+            document.getElementById('github-heatmap-img').src = `https://github-contributions-api.deno.dev/${username}.svg?y=${year}`;
             
             // 2. Update the title
             document.getElementById('gh-heatmap-title').innerHTML = `Contributions in ${year}`;
