@@ -183,9 +183,6 @@
                         </div>
                         <div class="github-year-pills">
                             <button class="github-year-pill active"><script>document.write(new Date().getFullYear())</script></button>
-                            <button class="github-year-pill"><script>document.write(new Date().getFullYear() - 1)</script></button>
-                            <button class="github-year-pill"><script>document.write(new Date().getFullYear() - 2)</script></button>
-                            <button class="github-year-pill"><script>document.write(new Date().getFullYear() - 3)</script></button>
                         </div>
                     </div>
                     <div class="github-heatmap-footer">
@@ -1125,8 +1122,7 @@
                 }
 
                 // Contributions: parse from the heatmap SVG
-                // Using allorigins to allow local file:// execution to fetch the SVG
-                const svgRes = await fetch(`https://api.allorigins.win/raw?url=https://ghchart.rshah.org/${username}`);
+                const svgRes = await fetch(`https://ghchart.rshah.org/${username}`);
                 if (svgRes.ok) {
                     const svgText = await svgRes.text();
                     const parser = new DOMParser();
