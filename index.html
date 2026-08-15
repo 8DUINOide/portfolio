@@ -1178,85 +1178,112 @@
             }
         }
 
-        // Render a GitHub-style contribution grid from daily data
+        // Render a GitHub-style contribution grid as an SVG (scales perfectly like ghchart)
         function renderContributionGrid(contributions, container, year) {
             container.innerHTML = '';
 
-            // Month labels row
             const monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-            const dayLabels = ['', 'Mon', '', 'Wed', '', 'Fri', ''];
 
-            // Group contributions into weeks (columns of 7 days)
-            // Each week starts on Sunday (day 0)
-            const firstDate = new Date(contributions[0].date);
-            const firstDayOfWeek = firstDate.getDay(); // 0=Sun, 1=Mon, ...
+            const cellSize = 11;
+            const cellGap = 3;
+            const cellPitch = cellSize + cellGap;
+            const labelWidth = 32;
+            const monthLabelHeight = 16;
 
-            // Pad the beginning with empty cells to align to the correct day
+            // Group contributions into weeks (columns of 7 days, starting Sunday)
+            const firstDate = new Date(contributions[0].date + 'T00:00:00');
+            const firstDayOfWeek = firstDate.getDay();
+
             const paddedContributions = [];
             for (let i = 0; i < firstDayOfWeek; i++) {
                 paddedContributions.push(null);
             }
             contributions.forEach(c => paddedContributions.push(c));
 
-            // Split into weeks (columns of 7)
             const weeks = [];
             for (let i = 0; i < paddedContributions.length; i += 7) {
                 weeks.push(paddedContributions.slice(i, i + 7));
             }
 
-            // Build the grid table
-            const table = document.createElement('table');
-            table.className = 'contrib-table';
+            const numWeeks = weeks.length;
+            const svgWidth = labelWidth + numWeeks * cellPitch;
+            const svgHeight = monthLabelHeight + 7 * cellPitch;
 
-            // Month header row
-            const monthRow = document.createElement('tr');
-            const emptyTh = document.createElement('td');
-            emptyTh.className = 'contrib-day-label';
-            monthRow.appendChild(emptyTh);
+            // Create SVG element
+            const ns = 'http://www.w3.org/2000/svg';
+            const svg = document.createElementNS(ns, 'svg');
+            svg.setAttribute('viewBox', `0 0 ${svgWidth} ${svgHeight}`);
+            svg.setAttribute('width', '100%');
+            svg.style.display = 'block';
 
-            // Track which months appear above which weeks
+            // Theme-aware colors via CSS variables (updates instantly on theme toggle)
+            const lvlColors = [
+                'var(--github-lvl-0)',
+                'var(--github-lvl-1)',
+                'var(--github-lvl-2)',
+                'var(--github-lvl-3)',
+                'var(--github-lvl-4)'
+            ];
+            const textColor = 'var(--github-text)';
+
+            // Draw month labels
             let lastMonth = -1;
-            weeks.forEach((week) => {
-                const td = document.createElement('td');
-                td.className = 'contrib-month-label';
-                // Find the first real day in this week
+            weeks.forEach((week, wi) => {
                 const realDay = week.find(d => d !== null);
                 if (realDay) {
-                    const m = new Date(realDay.date).getMonth();
+                    const m = new Date(realDay.date + 'T00:00:00').getMonth();
                     if (m !== lastMonth) {
-                        td.textContent = monthNames[m];
+                        const txt = document.createElementNS(ns, 'text');
+                        txt.setAttribute('x', labelWidth + wi * cellPitch);
+                        txt.setAttribute('y', monthLabelHeight - 4);
+                        txt.setAttribute('fill', textColor);
+                        txt.setAttribute('font-size', '10');
+                        txt.textContent = monthNames[m];
+                        svg.appendChild(txt);
                         lastMonth = m;
                     }
                 }
-                monthRow.appendChild(td);
             });
-            table.appendChild(monthRow);
 
-            // 7 rows for each day of the week (Sun-Sat)
-            for (let dayIndex = 0; dayIndex < 7; dayIndex++) {
-                const tr = document.createElement('tr');
-                
-                // Day label
-                const labelTd = document.createElement('td');
-                labelTd.className = 'contrib-day-label';
-                labelTd.textContent = dayLabels[dayIndex];
-                tr.appendChild(labelTd);
+            // Draw day labels (Mon, Wed, Fri)
+            const dayLabels = [{text: 'Mon', row: 1}, {text: 'Wed', row: 3}, {text: 'Fri', row: 5}];
+            dayLabels.forEach(dl => {
+                const txt = document.createElementNS(ns, 'text');
+                txt.setAttribute('x', labelWidth - 5);
+                txt.setAttribute('y', monthLabelHeight + dl.row * cellPitch + cellSize - 1);
+                txt.setAttribute('fill', textColor);
+                txt.setAttribute('font-size', '9');
+                txt.setAttribute('text-anchor', 'end');
+                txt.textContent = dl.text;
+                svg.appendChild(txt);
+            });
 
-                // One cell per week
-                weeks.forEach(week => {
-                    const td = document.createElement('td');
-                    const cell = week[dayIndex];
+            // Draw contribution cells
+            weeks.forEach((week, wi) => {
+                week.forEach((cell, di) => {
                     if (cell) {
-                        td.className = 'contrib-cell contrib-lvl-' + cell.level;
-                        td.title = `${cell.count} contribution${cell.count !== 1 ? 's' : ''} on ${cell.date}`;
-                    } else {
-                        td.className = 'contrib-cell contrib-empty';
+                        const rect = document.createElementNS(ns, 'rect');
+                        rect.setAttribute('x', labelWidth + wi * cellPitch);
+                        rect.setAttribute('y', monthLabelHeight + di * cellPitch);
+                        rect.setAttribute('width', cellSize);
+                        rect.setAttribute('height', cellSize);
+                        rect.setAttribute('rx', 2);
+                        rect.setAttribute('ry', 2);
+                        rect.setAttribute('fill', lvlColors[cell.level]);
+                        rect.setAttribute('data-count', cell.count);
+                        rect.setAttribute('data-date', cell.date);
+
+                        // Tooltip
+                        const title = document.createElementNS(ns, 'title');
+                        title.textContent = `${cell.count} contribution${cell.count !== 1 ? 's' : ''} on ${cell.date}`;
+                        rect.appendChild(title);
+
+                        svg.appendChild(rect);
                     }
-                    tr.appendChild(td);
                 });
-                table.appendChild(tr);
-            }
-            container.appendChild(table);
+            });
+
+            container.appendChild(svg);
         }
 
         // Fetch initial data for current year on load
