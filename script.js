@@ -320,7 +320,11 @@ document.addEventListener('DOMContentLoaded', () => {
             // Add filename caption only for non-event galleries
             const isEventImage = currentGallery[currentImageIndex].includes('Events/');
             if (!isEventImage) {
-                const filename = currentGallery[currentImageIndex].split('/').pop().split('.')[0].toUpperCase();
+                let filename = currentGallery[currentImageIndex].split('/').pop();
+                const lastDotIndex = filename.lastIndexOf('.');
+                if (lastDotIndex > 0) {
+                    filename = filename.substring(0, lastDotIndex);
+                }
                 let caption = lightbox.querySelector('.image-caption');
                 if (!caption) {
                     caption = document.createElement('div');
