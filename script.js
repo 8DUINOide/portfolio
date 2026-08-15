@@ -2,20 +2,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // Project galleries data structure
     const projectGalleries = {
         'JobAi': [
-            'Projects/Ongoing Projects/JobAi/1. JobAi@AppBuildersPH.jpg',
-            'Projects/Ongoing Projects/JobAi/2. Login Screen.jpg',
-            'Projects/Ongoing Projects/JobAi/3. Upload your Resume.jpg',
-            'Projects/Ongoing Projects/JobAi/4. Portfolio or LinkedIn.jpg',
-            'Projects/Ongoing Projects/JobAi/5. Target Roles.jpg',
-            'Projects/Ongoing Projects/JobAi/6. Ready to Launch.jpg',
-            'Projects/Ongoing Projects/JobAi/7. Profile Screen.jpg',
-            'Projects/Ongoing Projects/JobAi/8. Home Screen.jpg',
-            'Projects/Ongoing Projects/JobAi/9. Job Discovery Screen.jpg',
-            'Projects/Ongoing Projects/JobAi/10. Paste Job Description.jpg',
-            'Projects/Ongoing Projects/JobAi/11. Tailor Resume.jpg',
-            'Projects/Ongoing Projects/JobAi/12. ATS Friendly Resume.jpg',
-            'Projects/Ongoing Projects/JobAi/13. Application Tracker.jpg',
-            'Projects/Ongoing Projects/JobAi/14. Update Status.jpg'
+            'Projects/Ongoing Projects/JobAi/JobAi@AppBuildersPH.jpg',
+            'Projects/Ongoing Projects/JobAi/Login Screen.jpg',
+            'Projects/Ongoing Projects/JobAi/Upload your Resume.jpg',
+            'Projects/Ongoing Projects/JobAi/Portfolio or LinkedIn.jpg',
+            'Projects/Ongoing Projects/JobAi/Target Roles.jpg',
+            'Projects/Ongoing Projects/JobAi/Ready to Launch.jpg',
+            'Projects/Ongoing Projects/JobAi/Profile Screen.jpg',
+            'Projects/Ongoing Projects/JobAi/Home Screen.jpg',
+            'Projects/Ongoing Projects/JobAi/Job Discovery Screen.jpg',
+            'Projects/Ongoing Projects/JobAi/Paste Job Description.jpg',
+            'Projects/Ongoing Projects/JobAi/Tailor Resume.jpg',
+            'Projects/Ongoing Projects/JobAi/ATS Friendly Resume.jpg',
+            'Projects/Ongoing Projects/JobAi/Application Tracker.jpg',
+            'Projects/Ongoing Projects/JobAi/Update Status.jpg'
         ],
         'University Web Portal': [
             'Projects/University Web Portal/Login.jpg',
@@ -867,6 +867,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const carouselImages = document.querySelectorAll('.event-carousel-img');
     carouselImages.forEach(img => {
         img.addEventListener('click', function () {
+            const carousel = this.closest('.event-carousel');
+            if (carousel) {
+                const allImages = Array.from(carousel.querySelectorAll('.event-carousel-img'));
+                const uniqueSrcs = [...new Set(allImages.map(img => img.getAttribute('src')))];
+                const src = this.getAttribute('src');
+                const index = uniqueSrcs.indexOf(src);
+                
+                if (uniqueSrcs.length > 0) {
+                    currentGallery = uniqueSrcs;
+                    currentImageIndex = index !== -1 ? index : 0;
+                    
+                    const preloadImg = new Image();
+                    preloadImg.onload = () => {
+                        updateLightboxImage();
+                        lightbox.style.display = 'block';
+                        setTimeout(() => {
+                            lightbox.classList.add('active');
+                        }, 10);
+                        document.body.style.overflow = 'hidden';
+                    };
+                    preloadImg.src = uniqueSrcs[currentImageIndex];
+                    return;
+                }
+            }
+            
+            // Fallback
             const src = this.getAttribute('src');
             openLightbox(src);
         });
@@ -876,6 +902,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const internshipImages = document.querySelectorAll('.internship-gallery .gallery-img');
     internshipImages.forEach(img => {
         img.addEventListener('click', function () {
+            const gallery = this.closest('.internship-gallery');
+            if (gallery) {
+                const allImages = Array.from(gallery.querySelectorAll('.gallery-img'));
+                const uniqueSrcs = [...new Set(allImages.map(img => img.getAttribute('src')))];
+                const src = this.getAttribute('src');
+                const index = uniqueSrcs.indexOf(src);
+                
+                if (uniqueSrcs.length > 0) {
+                    currentGallery = uniqueSrcs;
+                    currentImageIndex = index !== -1 ? index : 0;
+                    
+                    const preloadImg = new Image();
+                    preloadImg.onload = () => {
+                        updateLightboxImage();
+                        lightbox.style.display = 'block';
+                        setTimeout(() => {
+                            lightbox.classList.add('active');
+                        }, 10);
+                        document.body.style.overflow = 'hidden';
+                    };
+                    preloadImg.src = uniqueSrcs[currentImageIndex];
+                    return;
+                }
+            }
+            
+            // Fallback
             const src = this.getAttribute('src');
             openLightbox(src);
         });
