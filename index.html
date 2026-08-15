@@ -173,12 +173,15 @@
                 </div>
                 <div class="github-heatmap-section">
                     <div class="github-heatmap-title-row">
-                        <span class="github-heatmap-count" id="gh-heatmap-title">Contributions in <script>document.write(new Date().getFullYear())</script></span>
+                        <span class="github-heatmap-count" id="gh-heatmap-title">Contributions in
+                            <script>document.write(new Date().getFullYear())</script>
+                        </span>
                     </div>
                     <div class="github-heatmap-body">
                         <div class="github-heatmap-wrapper">
                             <div id="github-heatmap-grid" class="github-heatmap-grid">
-                                <p style="color: var(--text-secondary); font-size: 0.8rem;">Loading contribution data...</p>
+                                <p style="color: var(--text-secondary); font-size: 0.8rem;">Loading contribution data...
+                                </p>
                             </div>
                         </div>
                         <div class="github-year-pills" id="github-year-pills">
@@ -213,22 +216,22 @@
         document.addEventListener('DOMContentLoaded', () => {
             const pills = document.querySelectorAll('.github-year-pill');
             const titleSpan = document.getElementById('gh-heatmap-title');
-            
+
             pills.forEach(pill => {
                 pill.addEventListener('click', (e) => {
                     // Update active state
                     pills.forEach(p => p.classList.remove('active'));
                     e.target.classList.add('active');
-                    
+
                     // Update title
                     const yearMatch = e.target.textContent.match(/\d{4}/);
                     const year = yearMatch ? yearMatch[0] : new Date().getFullYear();
-                    
+
                     // We extract the current number if it exists, otherwise just default to empty
                     const currentText = titleSpan.textContent;
                     const numMatch = currentText.match(/([\d,]+)\s+contributions/);
                     const count = numMatch ? numMatch[1] : '';
-                    
+
                     if (count) {
                         titleSpan.textContent = `${count} contributions in ${year}`;
                     } else {
@@ -406,11 +409,31 @@
                                             <h3>Ride.ADNU App Showcase</h3>
                                             <p>A Comprehensive UI/UX demonstration of the different user modules also
                                                 available on the Google Play</p>
+                                                
+                                            <div class="project-tags" style="margin: 10px 0;">
+                                                <span class="tag"><i class="fas fa-mobile-alt"></i> Mobile Developer</span>
+                                                <span class="tag"><i class="fas fa-server"></i> Backend Developer</span>
+                                                <span class="tag">Kotlin (Compose)</span>
+                                                <span class="tag">Java Spring Boot</span>
+                                                <span class="tag">PostgreSQL</span>
+                                                <span class="tag">Mapbox</span>
+                                            </div>
+
                                             <div class="appbuilders-widget" style="margin-top: 12px;">
-                                                <iframe id="appbuilders-iframe" src="https://appbuildersph.com/embed/apps/ride-adnu" title="Ride.ADNU votes on App Builders PH" width="320" height="72" style="border:0; display:none;" loading="lazy" scrolling="no" onload="this.style.display='block'; document.getElementById('appbuilders-fallback').style.display='none';"></iframe>
-                                                <a id="appbuilders-fallback" href="https://appbuildersph.com/apps/ride-adnu" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:8px; padding:10px 20px; background:linear-gradient(135deg, #00f2ea, #00d4aa); color:#0a0a0a; border-radius:10px; text-decoration:none; font-family:'Inter',sans-serif; font-weight:600; font-size:14px; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 2px 10px rgba(0,242,234,0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 15px rgba(0,242,234,0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 10px rgba(0,242,234,0.3)';">
+                                                <iframe id="appbuilders-iframe"
+                                                    src="https://appbuildersph.com/embed/apps/ride-adnu"
+                                                    title="Ride.ADNU votes on App Builders PH" width="320" height="72"
+                                                    style="border:0; display:none;" loading="lazy" scrolling="no"
+                                                    onload="this.style.display='block'; document.getElementById('appbuilders-fallback').style.display='none';"></iframe>
+                                                <a id="appbuilders-fallback"
+                                                    href="https://appbuildersph.com/apps/ride-adnu" target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    style="display:inline-flex; align-items:center; gap:8px; padding:10px 20px; background:linear-gradient(135deg, #00f2ea, #00d4aa); color:#0a0a0a; border-radius:10px; text-decoration:none; font-family:'Inter',sans-serif; font-weight:600; font-size:14px; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 2px 10px rgba(0,242,234,0.3);"
+                                                    onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 15px rgba(0,242,234,0.4)';"
+                                                    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 10px rgba(0,242,234,0.3)';">
                                                     <i class="fas fa-trophy"></i> Vote on App Builders PH
-                                                    <i class="fas fa-external-link-alt" style="font-size:11px; opacity:0.7;"></i>
+                                                    <i class="fas fa-external-link-alt"
+                                                        style="font-size:11px; opacity:0.7;"></i>
                                                 </a>
                                             </div>
                                         </div>
@@ -636,9 +659,12 @@
                                     style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 242, 234, 0.2);">
                             </div>
                             <div>
-                                <h3>JobAi <span class="tag" style="background: var(--accent-color); color: var(--btn-text); margin-left: 8px; font-size: 12px; vertical-align: middle;">Launched (in Testing)</span></h3>
-                                <p>AI-powered job-hunting assistant that automates scraping, resume tailoring, and application tracking.</p>
-                                
+                                <h3>JobAi <span class="tag"
+                                        style="background: var(--accent-color); color: var(--btn-text); margin-left: 8px; font-size: 12px; vertical-align: middle;">Launched
+                                        (in Testing)</span></h3>
+                                <p>AI-powered job-hunting assistant that automates scraping, resume tailoring, and
+                                    application tracking.</p>
+
                                 <div class="project-tags" style="margin: 10px 0;">
                                     <span class="tag"><i class="fas fa-robot"></i> AI Automation</span>
                                     <span class="tag"><i class="fas fa-laptop-code"></i> Full Stack</span>
@@ -648,13 +674,24 @@
                                     <span class="tag">Android</span>
                                 </div>
 
-                                <div class="appbuilders-widget" style="margin-top: 10px; display: flex; flex-direction: row; gap: 10px; align-items: center; flex-wrap: wrap;">
-                                    <iframe id="appbuilders-jobai-iframe" src="https://appbuildersph.com/embed/apps/jobai" title="JobAi votes on App Builders PH" width="320" height="72" style="border:0; display:none;" loading="lazy" scrolling="no" onload="this.style.display='block'; document.getElementById('appbuilders-jobai-fallback').style.display='none';"></iframe>
-                                    <a id="appbuilders-jobai-fallback" href="https://appbuildersph.com/apps/jobai" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:8px; padding:10px 20px; background:linear-gradient(135deg, #00f2ea, #00d4aa); color:#0a0a0a; border-radius:10px; text-decoration:none; font-family:'Inter',sans-serif; font-weight:600; font-size:14px; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 2px 10px rgba(0,242,234,0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 15px rgba(0,242,234,0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 10px rgba(0,242,234,0.3)';">
+                                <div class="appbuilders-widget"
+                                    style="margin-top: 10px; display: flex; flex-direction: row; gap: 10px; align-items: center; flex-wrap: wrap;">
+                                    <iframe id="appbuilders-jobai-iframe"
+                                        src="https://appbuildersph.com/embed/apps/jobai"
+                                        title="JobAi votes on App Builders PH" width="320" height="72"
+                                        style="border:0; display:none;" loading="lazy" scrolling="no"
+                                        onload="this.style.display='block'; document.getElementById('appbuilders-jobai-fallback').style.display='none';"></iframe>
+                                    <a id="appbuilders-jobai-fallback" href="https://appbuildersph.com/apps/jobai"
+                                        target="_blank" rel="noopener noreferrer"
+                                        style="display:inline-flex; align-items:center; gap:8px; padding:10px 20px; background:linear-gradient(135deg, #00f2ea, #00d4aa); color:#0a0a0a; border-radius:10px; text-decoration:none; font-family:'Inter',sans-serif; font-weight:600; font-size:14px; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 2px 10px rgba(0,242,234,0.3);"
+                                        onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 15px rgba(0,242,234,0.4)';"
+                                        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 10px rgba(0,242,234,0.3)';">
                                         <i class="fas fa-trophy"></i> Vote on App Builders PH
                                         <i class="fas fa-external-link-alt" style="font-size:11px; opacity:0.7;"></i>
                                     </a>
-                                    <a href="https://appbuildersph.com/testers/jobai" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="display:inline-flex; align-items:center; gap:8px; padding:10px 20px; font-size: 14px;">
+                                    <a href="https://appbuildersph.com/testers/jobai" target="_blank"
+                                        rel="noopener noreferrer" class="btn btn-outline"
+                                        style="display:inline-flex; align-items:center; gap:8px; padding:10px 20px; font-size: 14px;">
                                         <i class="fas fa-users"></i> Become a Tester
                                         <i class="fas fa-external-link-alt" style="font-size:11px; opacity:0.7;"></i>
                                     </a>
@@ -664,19 +701,34 @@
                     </div>
                     <div class="event-images-scroll">
                         <div class="event-carousel">
-                            <img src="Projects/Ongoing Projects/JobAi/Login Screen.jpg" alt="JobAi Screen" class="event-carousel-img portrait-img">
-                            <img src="Projects/Ongoing Projects/JobAi/Upload your Resume.jpg" alt="JobAi Screen" class="event-carousel-img portrait-img">
-                            <img src="Projects/Ongoing Projects/JobAi/Portfolio or LinkedIn.jpg" alt="JobAi Screen" class="event-carousel-img portrait-img">
-                            <img src="Projects/Ongoing Projects/JobAi/Target Roles.jpg" alt="JobAi Screen" class="event-carousel-img portrait-img">
-                            <img src="Projects/Ongoing Projects/JobAi/Ready to Launch.jpg" alt="JobAi Screen" class="event-carousel-img portrait-img">
-                            <img src="Projects/Ongoing Projects/JobAi/Profile Screen.jpg" alt="JobAi Screen" class="event-carousel-img portrait-img">
-                            <img src="Projects/Ongoing Projects/JobAi/Home Screen.jpg" alt="JobAi Screen" class="event-carousel-img portrait-img">
-                            <img src="Projects/Ongoing Projects/JobAi/Job Discovery Screen.jpg" alt="JobAi Screen" class="event-carousel-img portrait-img">
-                            <img src="Projects/Ongoing Projects/JobAi/Paste Job Description.jpg" alt="JobAi Screen" class="event-carousel-img portrait-img">
-                            <img src="Projects/Ongoing Projects/JobAi/Tailor Resume.jpg" alt="JobAi Screen" class="event-carousel-img portrait-img">
-                            <img src="Projects/Ongoing Projects/JobAi/ATS Friendly Resume.jpg" alt="JobAi Screen" class="event-carousel-img portrait-img">
-                            <img src="Projects/Ongoing Projects/JobAi/Application Tracker.jpg" alt="JobAi Screen" class="event-carousel-img portrait-img">
-                            <img src="Projects/Ongoing Projects/JobAi/Update Status.jpg" alt="JobAi Screen" class="event-carousel-img portrait-img">
+                            <img src="Projects/Ongoing Projects/JobAi/JobAi@AppBuildersPH.jpg" alt="JobAi Screen"
+                                class="event-carousel-img portrait-img">
+                            <img src="Projects/Ongoing Projects/JobAi/Login Screen.jpg" alt="JobAi Screen"
+                                class="event-carousel-img portrait-img">
+                            <img src="Projects/Ongoing Projects/JobAi/Upload your Resume.jpg" alt="JobAi Screen"
+                                class="event-carousel-img portrait-img">
+                            <img src="Projects/Ongoing Projects/JobAi/Portfolio or LinkedIn.jpg" alt="JobAi Screen"
+                                class="event-carousel-img portrait-img">
+                            <img src="Projects/Ongoing Projects/JobAi/Target Roles.jpg" alt="JobAi Screen"
+                                class="event-carousel-img portrait-img">
+                            <img src="Projects/Ongoing Projects/JobAi/Ready to Launch.jpg" alt="JobAi Screen"
+                                class="event-carousel-img portrait-img">
+                            <img src="Projects/Ongoing Projects/JobAi/Profile Screen.jpg" alt="JobAi Screen"
+                                class="event-carousel-img portrait-img">
+                            <img src="Projects/Ongoing Projects/JobAi/Home Screen.jpg" alt="JobAi Screen"
+                                class="event-carousel-img portrait-img">
+                            <img src="Projects/Ongoing Projects/JobAi/Job Discovery Screen.jpg" alt="JobAi Screen"
+                                class="event-carousel-img portrait-img">
+                            <img src="Projects/Ongoing Projects/JobAi/Paste Job Description.jpg" alt="JobAi Screen"
+                                class="event-carousel-img portrait-img">
+                            <img src="Projects/Ongoing Projects/JobAi/Tailor Resume.jpg" alt="JobAi Screen"
+                                class="event-carousel-img portrait-img">
+                            <img src="Projects/Ongoing Projects/JobAi/ATS Friendly Resume.jpg" alt="JobAi Screen"
+                                class="event-carousel-img portrait-img">
+                            <img src="Projects/Ongoing Projects/JobAi/Application Tracker.jpg" alt="JobAi Screen"
+                                class="event-carousel-img portrait-img">
+                            <img src="Projects/Ongoing Projects/JobAi/Update Status.jpg" alt="JobAi Screen"
+                                class="event-carousel-img portrait-img">
                         </div>
                     </div>
                 </div>
@@ -1187,10 +1239,10 @@
         // Dynamically render the GitHub contribution grid from real API data
         async function selectYear(year) {
             const username = '8DUINOide';
-            
+
             // 1. Update the title
             document.getElementById('gh-heatmap-title').innerHTML = `Contributions in ${year}`;
-            
+
             // 2. Update the active state on the year buttons
             const pills = document.querySelectorAll('.github-year-pill');
             pills.forEach(pill => {
@@ -1220,7 +1272,7 @@
                 contributionsStat.textContent = totalForYear.toLocaleString();
 
                 // Update the heatmap title with the count
-                document.getElementById('gh-heatmap-title').innerHTML = 
+                document.getElementById('gh-heatmap-title').innerHTML =
                     `${totalForYear.toLocaleString()} contributions in ${year}`;
 
                 // 5. Render the grid from the daily data
@@ -1237,7 +1289,7 @@
         function renderContributionGrid(contributions, container, year) {
             container.innerHTML = '';
 
-            const monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+            const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
             const cellSize = 11;
             const cellGap = 3;
@@ -1301,7 +1353,7 @@
             });
 
             // Draw day labels (Mon, Wed, Fri)
-            const dayLabels = [{text: 'Mon', row: 1}, {text: 'Wed', row: 3}, {text: 'Fri', row: 5}];
+            const dayLabels = [{ text: 'Mon', row: 1 }, { text: 'Wed', row: 3 }, { text: 'Fri', row: 5 }];
             dayLabels.forEach(dl => {
                 const txt = document.createElementNS(ns, 'text');
                 txt.setAttribute('x', labelWidth - 5);
