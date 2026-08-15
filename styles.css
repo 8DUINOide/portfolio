@@ -542,8 +542,8 @@ body {
 
 .skills-section h3 {
     font-family: var(--font-heading);
-    font-size: 1.5rem;
-    margin-bottom: 40px;
+    font-size: 2.5rem;
+    margin-bottom: 60px;
     color: var(--text-primary);
     text-align: center;
 }
@@ -2122,3 +2122,261 @@ footer p {
     letter-spacing: 0.5px;
     font-weight: 300;
 }
+
+/* ============================== */
+/* GitHub Activity Section        */
+/* ============================== */
+
+.github-compact-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 24px 28px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    overflow: hidden;
+}
+
+.github-compact-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0, 242, 234, 0.08);
+    border-color: rgba(0, 242, 234, 0.2);
+}
+
+.github-compact-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.github-compact-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.github-compact-title i {
+    font-size: 1.4rem;
+    color: var(--accent-color);
+}
+
+.github-profile-link {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--accent-color);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.github-profile-link:hover {
+    background: var(--accent-color);
+    color: var(--btn-text);
+    border-color: var(--accent-color);
+}
+
+.github-profile-link i {
+    font-size: 0.65rem;
+}
+
+.github-compact-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 22px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.github-mini-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 10px 8px;
+    background: var(--subtle-bg);
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+.github-mini-stat:hover {
+    background: var(--subtle-bg-hover);
+}
+
+.mini-stat-value {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    line-height: 1;
+}
+
+.mini-stat-label {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.github-heatmap-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.github-heatmap-title-row {
+    margin-bottom: 14px;
+}
+
+.github-heatmap-count {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+}
+
+.github-heatmap-body {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.github-heatmap-wrapper {
+    overflow-x: auto;
+    padding: 4px 0;
+    flex-grow: 1;
+}
+
+.github-heatmap-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    min-width: 600px;
+}
+
+.github-heatmap-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 14px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.github-learn-link {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.github-learn-link:hover {
+    color: var(--accent-color);
+}
+
+.github-year-pills {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-shrink: 0;
+    width: 60px;
+}
+
+
+
+.github-heatmap-legend {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.legend-squares {
+    display: flex;
+    gap: 3px;
+}
+
+.legend-square {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    display: inline-block;
+}
+
+/* GitHub heatmap colors (matching the teal theme) */
+.legend-square.lvl-0 { background: rgba(255, 255, 255, 0.05); }
+.legend-square.lvl-1 { background: rgba(0, 242, 234, 0.25); }
+.legend-square.lvl-2 { background: rgba(0, 242, 234, 0.5); }
+.legend-square.lvl-3 { background: rgba(0, 242, 234, 0.75); }
+.legend-square.lvl-4 { background: #00f2ea; }
+
+:root.light-mode .legend-square.lvl-0 { background: rgba(0, 0, 0, 0.05); }
+:root.light-mode .legend-square.lvl-1 { background: rgba(0, 143, 138, 0.25); }
+:root.light-mode .legend-square.lvl-2 { background: rgba(0, 143, 138, 0.5); }
+:root.light-mode .legend-square.lvl-3 { background: rgba(0, 143, 138, 0.75); }
+:root.light-mode .legend-square.lvl-4 { background: #008f8a; }
+
+.github-year-pill {
+    display: block;
+    width: 100%;
+    padding: 6px 14px;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: right;
+}
+
+.github-year-pill:hover:not(.active) {
+    background: var(--subtle-bg);
+}
+
+.github-year-pill.active {
+    background: var(--accent-color);
+    color: var(--btn-text);
+    font-weight: 600;
+}
+
+/* Light mode heatmap color */
+:root.light-mode .github-heatmap-wrapper img[id="github-heatmap-img"] {
+    content: url("https://ghchart.rshah.org/008f8a/8DUINOide");
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .github-compact-card {
+        padding: 18px;
+    }
+
+    .github-compact-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .github-compact-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+}
+

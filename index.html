@@ -27,6 +27,7 @@
             </div>
             <ul class="nav-menu">
                 <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#github" class="nav-link">GitHub</a></li>
                 <li><a href="#education" class="nav-link">Education</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#internships" class="nav-link">Internships</a></li>
@@ -138,6 +139,105 @@
             </div>
         </div>
     </section>
+
+    <!-- GitHub Activity Section -->
+    <section id="github" class="section">
+        <div class="container">
+            <h2 class="section-title">GitHub Activity</h2>
+            <div class="github-compact-card">
+                <div class="github-compact-header">
+                    <div class="github-compact-title">
+                        <i class="fab fa-github"></i>
+                        <span>@8DUINOide</span>
+                    </div>
+                    <a href="https://github.com/8DUINOide" target="_blank" class="github-profile-link">
+                        View Profile <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                <div class="github-compact-stats" id="github-stats-bar">
+                    <div class="github-mini-stat">
+                        <span class="mini-stat-value" id="gh-contributions">—</span>
+                        <span class="mini-stat-label">Contributions</span>
+                    </div>
+                    <div class="github-mini-stat">
+                        <span class="mini-stat-value" id="gh-repos">—</span>
+                        <span class="mini-stat-label">Public Repos</span>
+                    </div>
+                    <div class="github-mini-stat">
+                        <span class="mini-stat-value" id="gh-followers">—</span>
+                        <span class="mini-stat-label">Followers</span>
+                    </div>
+                    <div class="github-mini-stat">
+                        <span class="mini-stat-value" id="gh-following">—</span>
+                        <span class="mini-stat-label">Following</span>
+                    </div>
+                </div>
+                <div class="github-heatmap-section">
+                    <div class="github-heatmap-title-row">
+                        <span class="github-heatmap-count" id="gh-heatmap-title">Contributions in <script>document.write(new Date().getFullYear())</script></span>
+                    </div>
+                    <div class="github-heatmap-body">
+                        <div class="github-heatmap-wrapper">
+                            <img src="https://ghchart.rshah.org/00f2ea/8DUINOide" alt="GitHub Contribution Heatmap"
+                                id="github-heatmap-img" loading="lazy">
+                        </div>
+                        <div class="github-year-pills">
+                            <button class="github-year-pill active"><script>document.write(new Date().getFullYear())</script></button>
+                            <button class="github-year-pill"><script>document.write(new Date().getFullYear() - 1)</script></button>
+                            <button class="github-year-pill"><script>document.write(new Date().getFullYear() - 2)</script></button>
+                            <button class="github-year-pill"><script>document.write(new Date().getFullYear() - 3)</script></button>
+                        </div>
+                    </div>
+                    <div class="github-heatmap-footer">
+                        <a href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile"
+                            target="_blank" class="github-learn-link">Learn how we count contributions</a>
+                        <div class="github-heatmap-legend">
+                            <span>Less</span>
+                            <div class="legend-squares">
+                                <span class="legend-square lvl-0" title="No contributions"></span>
+                                <span class="legend-square lvl-1" title="Low contributions"></span>
+                                <span class="legend-square lvl-2" title="Medium-low contributions"></span>
+                                <span class="legend-square lvl-3" title="Medium-high contributions"></span>
+                                <span class="legend-square lvl-4" title="High contributions"></span>
+                            </div>
+                            <span>More</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Make year pills interactive
+        document.addEventListener('DOMContentLoaded', () => {
+            const pills = document.querySelectorAll('.github-year-pill');
+            const titleSpan = document.getElementById('gh-heatmap-title');
+            
+            pills.forEach(pill => {
+                pill.addEventListener('click', (e) => {
+                    // Update active state
+                    pills.forEach(p => p.classList.remove('active'));
+                    e.target.classList.add('active');
+                    
+                    // Update title
+                    const yearMatch = e.target.textContent.match(/\d{4}/);
+                    const year = yearMatch ? yearMatch[0] : new Date().getFullYear();
+                    
+                    // We extract the current number if it exists, otherwise just default to empty
+                    const currentText = titleSpan.textContent;
+                    const numMatch = currentText.match(/([\d,]+)\s+contributions/);
+                    const count = numMatch ? numMatch[1] : '';
+                    
+                    if (count) {
+                        titleSpan.textContent = `${count} contributions in ${year}`;
+                    } else {
+                        titleSpan.textContent = `Contributions in ${year}`;
+                    }
+                });
+            });
+        });
+    </script>
 
     <!-- Education Section -->
     <section id="education" class="section">
@@ -1010,6 +1110,41 @@
 
     <script src="script.js"></script>
     <script src="visitor-counter.js"></script>
+    <script>
+        // Fetch GitHub stats from public API (no auth needed)
+        (async function loadGitHubStats() {
+            const username = '8DUINOide';
+            try {
+                // Fetch user profile (public repos, followers, following)
+                const userRes = await fetch(`https://api.github.com/users/${username}`);
+                if (userRes.ok) {
+                    const user = await userRes.json();
+                    document.getElementById('gh-repos').textContent = user.public_repos || 0;
+                    document.getElementById('gh-followers').textContent = user.followers || 0;
+                    document.getElementById('gh-following').textContent = user.following || 0;
+                }
+
+                // Contributions: parse from the heatmap SVG
+                // Using allorigins to allow local file:// execution to fetch the SVG
+                const svgRes = await fetch(`https://api.allorigins.win/raw?url=https://ghchart.rshah.org/${username}`);
+                if (svgRes.ok) {
+                    const svgText = await svgRes.text();
+                    const parser = new DOMParser();
+                    const svgDoc = parser.parseFromString(svgText, 'image/svg+xml');
+                    const rects = svgDoc.querySelectorAll('rect[data-count]');
+                    let total = 0;
+                    rects.forEach(r => { total += parseInt(r.getAttribute('data-count') || '0', 10); });
+                    if (total > 0) {
+                        document.getElementById('gh-contributions').textContent = total.toLocaleString();
+                        document.getElementById('gh-heatmap-title').textContent = 
+                            total.toLocaleString() + ' contributions in ' + new Date().getFullYear();
+                    }
+                }
+            } catch (e) {
+                // Silently fail — stats will show dashes
+            }
+        })();
+    </script>
 </body>
 
 </html>
