@@ -156,7 +156,7 @@
                 </div>
                 <div class="github-compact-stats" id="github-stats-bar">
                     <div class="github-mini-stat">
-                        <span class="mini-stat-value" id="gh-contributions">—</span>
+                        <span class="mini-stat-value" id="gh-contributions">583</span>
                         <span class="mini-stat-label">Contributions</span>
                     </div>
                     <div class="github-mini-stat">
@@ -178,11 +178,14 @@
                     </div>
                     <div class="github-heatmap-body">
                         <div class="github-heatmap-wrapper">
-                            <img src="https://ghchart.rshah.org/00f2ea/8DUINOide" alt="GitHub Contribution Heatmap"
+                            <img src="https://ghchart.rshah.org/2026/00f2ea/8DUINOide" alt="GitHub Contribution Heatmap"
                                 id="github-heatmap-img" loading="lazy">
                         </div>
-                        <div class="github-year-pills">
-                            <button class="github-year-pill active"><script>document.write(new Date().getFullYear())</script></button>
+                        <div class="github-year-pills" id="github-year-pills">
+                            <button class="github-year-pill active" onclick="selectYear(2026)">2026</button>
+                            <button class="github-year-pill" onclick="selectYear(2025)">2025</button>
+                            <button class="github-year-pill" onclick="selectYear(2024)">2024</button>
+                            <button class="github-year-pill" onclick="selectYear(2023)">2023</button>
                         </div>
                     </div>
                     <div class="github-heatmap-footer">
@@ -1120,26 +1123,54 @@
                     document.getElementById('gh-followers').textContent = user.followers || 0;
                     document.getElementById('gh-following').textContent = user.following || 0;
                 }
-
-                // Contributions: parse from the heatmap SVG
-                const svgRes = await fetch(`https://ghchart.rshah.org/${username}`);
-                if (svgRes.ok) {
-                    const svgText = await svgRes.text();
-                    const parser = new DOMParser();
-                    const svgDoc = parser.parseFromString(svgText, 'image/svg+xml');
-                    const rects = svgDoc.querySelectorAll('rect[data-count]');
-                    let total = 0;
-                    rects.forEach(r => { total += parseInt(r.getAttribute('data-count') || '0', 10); });
-                    if (total > 0) {
-                        document.getElementById('gh-contributions').textContent = total.toLocaleString();
-                        document.getElementById('gh-heatmap-title').textContent = 
-                            total.toLocaleString() + ' contributions in ' + new Date().getFullYear();
-                    }
-                }
             } catch (e) {
-                // Silently fail — stats will show dashes
+                // Silently fail if rate limited
             }
         })();
+
+        // Dynamically change the GitHub contribution grid year and total count
+        async function selectYear(year) {
+            const username = '8DUINOide';
+            const hexColor = '00f2ea'; // Teal color to match your theme
+            
+            // 1. Update the grid image source
+            document.getElementById('github-heatmap-img').src = `https://ghchart.rshah.org/${year}/${hexColor}/${username}`;
+            
+            // 2. Update the title
+            document.getElementById('gh-heatmap-title').innerHTML = `Contributions in ${year}`;
+            
+            // 3. Update the active state on the buttons
+            const pills = document.querySelectorAll('.github-year-pill');
+            pills.forEach(pill => {
+                if (pill.innerText.trim() == year) {
+                    pill.classList.add('active');
+                } else {
+                    pill.classList.remove('active');
+                }
+            });
+
+            // 4. Fetch the dynamic total contributions for this specific year!
+            const contributionsStat = document.getElementById('gh-contributions');
+            contributionsStat.textContent = '...'; // Loading state
+            
+            try {
+                const res = await fetch(`https://github-contributions-api.jogruber.de/v4/${username}?y=${year}`);
+                if (res.ok) {
+                    const data = await res.json();
+                    // The API returns { total: { "2026": 583, ... } }
+                    const totalForYear = data.total[year] || 0;
+                    contributionsStat.textContent = totalForYear.toLocaleString();
+                } else {
+                    contributionsStat.textContent = '—';
+                }
+            } catch (e) {
+                console.error("Error fetching dynamic contributions:", e);
+                contributionsStat.textContent = '—';
+            }
+        }
+
+        // Fetch initial data for current year on load
+        selectYear(new Date().getFullYear());
     </script>
 </body>
 
