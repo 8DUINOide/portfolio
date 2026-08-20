@@ -1670,7 +1670,7 @@ footer p {
     }
     
     .section {
-        padding: 60px 0;
+        padding: 40px 0;
     }
     
     .section-title {
@@ -1719,6 +1719,7 @@ footer p {
         position: static;
         min-width: 100%;
         padding: 30px 20px;
+        margin-top: 0;
     }
     
     .external-channels .btn {
@@ -1813,6 +1814,22 @@ footer p {
     
     .project-actions {
         flex-direction: column;
+    }
+    
+    footer {
+        padding: 15px 0 10px 0;
+    }
+    
+    .footer-logo {
+        width: 30px;
+        height: 30px;
+        margin-bottom: 5px;
+    }
+    
+    footer p {
+        font-size: 0.7rem;
+        margin-bottom: 2px;
+        line-height: 1.2;
     }
 }
 @keyframes scroll {
