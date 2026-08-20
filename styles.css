@@ -1567,12 +1567,15 @@ footer p {
         left: -100%;
         top: 70px;
         flex-direction: column;
-        background-color: rgba(10, 10, 10, 0.95);
+        background-color: var(--nav-bg-scrolled);
         width: 100%;
+        margin: 0;
         text-align: center;
         transition: 0.3s;
         backdrop-filter: blur(20px);
         border-bottom: 1px solid var(--border-color);
+        padding: 20px 0;
+        gap: 20px;
     }
     
     .nav-menu.active {
@@ -1756,6 +1759,18 @@ footer p {
 @media (max-width: 480px) {
     .container {
         padding: 0 15px;
+    }
+    
+    .education-card {
+        padding: 20px;
+    }
+    
+    .thesis-section {
+        padding: 15px;
+    }
+    
+    .timeline-item {
+        padding: 20px;
     }
     
     .hero-text h1 {
