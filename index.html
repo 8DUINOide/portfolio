@@ -650,8 +650,10 @@
             </div>
 
             <!-- JobAi App Showcase (Launched in Testing) -->
-            <div class="events-container" style="margin-top: 50px;">
-                <div class="event-row">
+            <div class="events-container flip-card-container" style="margin-top: 50px;">
+                <div class="flip-card-inner" id="jobai-flip-inner">
+                    <div class="flip-card-front">
+                        <div class="event-row">
                     <div class="event-info">
                         <div class="event-header">
                             <div class="event-icon" style="background: none; padding: 0;">
@@ -695,6 +697,9 @@
                                         <i class="fas fa-users"></i> Become a Tester
                                         <i class="fas fa-external-link-alt" style="font-size:11px; opacity:0.7;"></i>
                                     </a>
+                                    <button onclick="document.getElementById('jobai-flip-inner').classList.add('flipped')" class="btn btn-primary" style="display:inline-flex; align-items:center; gap:8px; padding:10px 20px; font-size: 14px; border: none; cursor: pointer;">
+                                        <i class="fas fa-sync-alt"></i> See Resume Builder Feature
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -731,6 +736,55 @@
                                 class="event-carousel-img portrait-img">
                         </div>
                     </div>
+                </div>
+                </div>
+
+                <!-- Resume Builder Showcase (Back side) -->
+                <div class="flip-card-back" style="height: 100%;">
+                <div class="event-row" style="height: 100%;">
+                    <div class="event-info">
+                        <div class="event-header">
+                            <div class="event-icon" style="background: none; padding: 0;">
+                                <img src="Projects/Resume Builder/artex-icon.jpg" alt="Artex Resume Builder Icon"
+                                    style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 242, 234, 0.2);">
+                            </div>
+                            <div>
+                                <h3>Artex Resume Builder</h3>
+                                <p>A web-based resume builder originally from JobAi, improved with multiple templates and AI extraction.</p>
+                                
+                                <div class="project-tags" style="margin: 10px 0;">
+                                    <span class="tag"><i class="fas fa-laptop-code"></i> Web App</span>
+                                    <span class="tag"><i class="fas fa-robot"></i> AI Integration</span>
+                                </div>
+
+                                <div style="margin-top: 15px; display: flex; flex-wrap: wrap; gap: 10px;">
+                                    <a href="https://artex-resume-builder.vercel.app/index.html" target="_blank"
+                                        rel="noopener noreferrer" class="btn btn-outline"
+                                        style="display:inline-flex; align-items:center; gap:8px; padding:10px 20px; font-size: 14px;">
+                                        <i class="fas fa-external-link-alt"></i> Try Resume Builder
+                                    </a>
+                                    <button onclick="document.getElementById('jobai-flip-inner').classList.remove('flipped')" class="btn btn-primary" style="display:inline-flex; align-items:center; gap:8px; padding:10px 20px; font-size: 14px; border: none; cursor: pointer;">
+                                        <i class="fas fa-arrow-left"></i> Back to JobAi
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event-images-scroll">
+                        <div class="event-carousel">
+                            <img src="Projects/Resume Builder/Sign-In.png" alt="Sign-In" class="event-carousel-img landscape-img" onclick="openLightbox(this.src)">
+                            <img src="Projects/Resume Builder/Resume Details.png" alt="Resume Details" class="event-carousel-img landscape-img" onclick="openLightbox(this.src)">
+                            <img src="Projects/Resume Builder/AI Scanner.png" alt="AI Scanner" class="event-carousel-img landscape-img" onclick="openLightbox(this.src)">
+                            <img src="Projects/Resume Builder/Extraction.png" alt="Extraction" class="event-carousel-img landscape-img" onclick="openLightbox(this.src)">
+                            <img src="Projects/Resume Builder/Auto-Filled.png" alt="Auto-Filled" class="event-carousel-img landscape-img" onclick="openLightbox(this.src)">
+                            <img src="Projects/Resume Builder/Profile Photo.png" alt="Profile Photo" class="event-carousel-img landscape-img" onclick="openLightbox(this.src)">
+                            <img src="Projects/Resume Builder/Templates.png" alt="Templates" class="event-carousel-img landscape-img" onclick="openLightbox(this.src)">
+                            <img src="Projects/Resume Builder/Live Preview.png" alt="Live Preview" class="event-carousel-img landscape-img" onclick="openLightbox(this.src)">
+                            <img src="Projects/Resume Builder/Generate Order.png" alt="Generate Order" class="event-carousel-img landscape-img" onclick="openLightbox(this.src)">
+                        </div>
+                    </div>
+                </div>
+                </div>
                 </div>
             </div>
         </div>
