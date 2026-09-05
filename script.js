@@ -417,76 +417,6 @@ document.addEventListener('DOMContentLoaded', () => {
         img.src = imageSrc;
     };
 
-    if (window.pdfjsLib) {
-        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-    }
-
-    function drawCertificatePage(preview, page) {
-        const canvas = preview.querySelector('canvas');
-        const bounds = preview.getBoundingClientRect();
-        const rotation = ((page.rotate || 0) + (preview._rotationCorrection || 0)) % 360;
-        const pageViewport = page.getViewport({ scale: 1, rotation });
-        const scale = Math.min(
-            bounds.width / pageViewport.width,
-            bounds.height / pageViewport.height
-        );
-        const pixelRatio = window.devicePixelRatio || 1;
-        const viewport = page.getViewport({
-            scale: scale * pixelRatio,
-            rotation
-        });
-
-        canvas.width = viewport.width;
-        canvas.height = viewport.height;
-        canvas.style.width = `${pageViewport.width * scale}px`;
-        canvas.style.height = `${pageViewport.height * scale}px`;
-
-        return page.render({
-            canvasContext: canvas.getContext('2d'),
-            viewport
-        }).promise;
-    }
-
-    function renderCertificatePreview(preview, pdfSrc) {
-        if (!window.pdfjsLib) {
-            useNativeCertificatePreview(preview, pdfSrc);
-            return;
-        }
-
-        pdfjsLib.getDocument({
-            url: pdfSrc,
-            disableWorker: window.location.protocol === 'file:'
-        }).promise
-            .then((pdf) => pdf.getPage(1))
-            .then((page) => {
-                preview._pdfPage = page;
-                preview.classList.add('is-rendered');
-                if (window.ResizeObserver) {
-                    preview._resizeObserver = new ResizeObserver(() => {
-                        drawCertificatePage(preview, page);
-                    });
-                    preview._resizeObserver.observe(preview);
-                }
-                return drawCertificatePage(preview, page);
-            })
-            .catch(() => useNativeCertificatePreview(preview, pdfSrc));
-    }
-
-    function useNativeCertificatePreview(preview, pdfSrc) {
-        if (preview.classList.contains('preview-fallback')) {
-            return;
-        }
-
-        preview.classList.add('preview-fallback');
-        preview.replaceChildren();
-
-        const previewFrame = document.createElement('iframe');
-        previewFrame.src = `${pdfSrc}#page=1&zoom=page-fit&toolbar=0&navpanes=0&scrollbar=0`;
-        previewFrame.title = 'Certificate first-page preview';
-        previewFrame.loading = 'lazy';
-        preview.appendChild(previewFrame);
-    }
-
     document.querySelectorAll('#certifications .cert-item, #seminars .certificate-item').forEach((certificate) => {
         const viewLink = certificate.querySelector('a[onclick*="openCertificateLightbox"]');
         const clickHandler = viewLink?.getAttribute('onclick') || certificate.getAttribute('onclick');
@@ -499,16 +429,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const preview = document.createElement('div');
         preview.className = 'cert-preview';
         preview.setAttribute('aria-hidden', 'true');
-        if (/Smart Transport Surveys/i.test(pdfMatch[1])) {
-            preview._rotationCorrection = 180;
-        }
 
-        const previewCanvas = document.createElement('canvas');
-        previewCanvas.setAttribute('aria-label', 'Certificate first-page preview');
+        const previewImage = document.createElement('img');
+        previewImage.src = `Certificate Previews/${pdfMatch[1].replace(/\.pdf$/i, '.png')}`;
+        previewImage.alt = 'Certificate first-page preview';
+        previewImage.loading = 'lazy';
 
-        preview.appendChild(previewCanvas);
+        preview.appendChild(previewImage);
         certificate.insertBefore(preview, certificate.firstElementChild);
-        renderCertificatePreview(preview, pdfMatch[1]);
     });
 
     // Open certificate lightbox function
