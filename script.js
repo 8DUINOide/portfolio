@@ -424,13 +424,17 @@ document.addEventListener('DOMContentLoaded', () => {
     function drawCertificatePage(preview, page) {
         const canvas = preview.querySelector('canvas');
         const bounds = preview.getBoundingClientRect();
-        const pageViewport = page.getViewport({ scale: 1 });
+        const rotation = ((page.rotate || 0) + (preview._rotationCorrection || 0)) % 360;
+        const pageViewport = page.getViewport({ scale: 1, rotation });
         const scale = Math.min(
             bounds.width / pageViewport.width,
             bounds.height / pageViewport.height
         );
         const pixelRatio = window.devicePixelRatio || 1;
-        const viewport = page.getViewport({ scale: scale * pixelRatio });
+        const viewport = page.getViewport({
+            scale: scale * pixelRatio,
+            rotation
+        });
 
         canvas.width = viewport.width;
         canvas.height = viewport.height;
@@ -495,6 +499,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const preview = document.createElement('div');
         preview.className = 'cert-preview';
         preview.setAttribute('aria-hidden', 'true');
+        preview._rotationCorrection = /Smart Transport Surveys/i.test(pdfMatch[1]) ? 180 : 0;
 
         const previewCanvas = document.createElement('canvas');
         previewCanvas.setAttribute('aria-label', 'Certificate first-page preview');
