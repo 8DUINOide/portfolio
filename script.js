@@ -499,7 +499,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const preview = document.createElement('div');
         preview.className = 'cert-preview';
         preview.setAttribute('aria-hidden', 'true');
-        preview._rotationCorrection = /Smart Transport Surveys/i.test(pdfMatch[1]) ? 180 : 0;
+        if (/Smart Transport Surveys/i.test(pdfMatch[1])) {
+            preview.classList.add('cert-preview--rotate-180');
+        }
 
         const previewCanvas = document.createElement('canvas');
         previewCanvas.setAttribute('aria-label', 'Certificate first-page preview');
