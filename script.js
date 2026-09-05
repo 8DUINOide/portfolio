@@ -417,6 +417,28 @@ document.addEventListener('DOMContentLoaded', () => {
         img.src = imageSrc;
     };
 
+    document.querySelectorAll('.cert-item, .certificate-item').forEach((certificate) => {
+        const viewLink = certificate.querySelector('a[onclick*="openCertificateLightbox"]');
+        const clickHandler = viewLink?.getAttribute('onclick') || certificate.getAttribute('onclick');
+        const pdfMatch = clickHandler?.match(/openCertificateLightbox\('([^']+\.pdf)'\)/i);
+
+        if (!pdfMatch) {
+            return;
+        }
+
+        const preview = document.createElement('div');
+        preview.className = 'cert-preview';
+        preview.setAttribute('aria-hidden', 'true');
+
+        const previewFrame = document.createElement('iframe');
+        previewFrame.src = `${pdfMatch[1]}#page=1&zoom=page-fit&toolbar=0&navpanes=0&scrollbar=0`;
+        previewFrame.title = 'Certificate first-page preview';
+        previewFrame.loading = 'lazy';
+
+        preview.appendChild(previewFrame);
+        certificate.insertBefore(preview, certificate.firstElementChild);
+    });
+
     // Open certificate lightbox function
     window.openCertificateLightbox = (pdfSrc) => {
         const lightbox = document.getElementById('lightbox');

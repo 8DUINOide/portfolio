@@ -1155,13 +1155,19 @@ body {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 15px;
-    padding: 30px;
+    padding: 14px;
     text-align: center;
     backdrop-filter: blur(20px);
     transition: all 0.3s ease;
     cursor: pointer;
     position: relative;
     overflow: hidden;
+}
+
+.certificate-item > .btn {
+    display: block;
+    width: max-content;
+    margin: 0 auto;
 }
 
 .certificate-item::before {
@@ -1187,9 +1193,12 @@ body {
 }
 
 .certificate-item i {
-    font-size: 3rem;
+    display: inline-block;
+    width: 60px;
+    font-size: 2.5rem;
     color: var(--accent-color);
-    margin-bottom: 20px;
+    vertical-align: middle;
+    margin: 0 10px 10px 0;
     transition: transform 0.3s ease;
 }
 
@@ -1198,16 +1207,22 @@ body {
 }
 
 .certificate-item h4 {
+    display: inline-block;
+    width: calc(100% - 76px);
+    vertical-align: middle;
     font-family: var(--font-heading);
     font-size: 1.2rem;
     color: var(--text-primary);
-    margin-bottom: 10px;
+    text-align: left;
+    margin: 0 0 10px;
 }
 
 .certificate-item p {
+    display: block;
     color: var(--text-secondary);
     font-size: 0.9rem;
     font-weight: 500;
+    margin: 0;
 }
 
 .fieldtrips-gallery {
@@ -1271,7 +1286,7 @@ body {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 15px;
-    padding: 30px;
+    padding: 14px;
     text-align: center;
     backdrop-filter: blur(20px);
     transition: all 0.3s ease;
@@ -1288,21 +1303,84 @@ body {
     margin-bottom: 15px;
 }
 
+.cert-preview {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1.414 / 1;
+    margin-bottom: 18px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    border-radius: 9px;
+    background: #f5f6f8;
+    box-shadow: 0 5px 14px rgba(20, 28, 40, 0.08);
+}
+
+.cert-preview::after {
+    content: 'Certificate preview';
+    position: absolute;
+    right: 8px;
+    bottom: 7px;
+    padding: 3px 7px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.88);
+    color: #4b5563;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    pointer-events: none;
+}
+
+.cert-preview iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+    background: white;
+    pointer-events: none;
+}
+
 .cert-logo {
     width: 60px;
     height: 60px;
     object-fit: contain;
-    margin: 0 auto 15px auto;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 10px 10px 0;
     border-radius: 8px;
     background: var(--subtle-bg-hover);
     padding: 5px;
 }
 
+.cert-badge {
+    object-fit: contain;
+    background: transparent;
+    padding: 0;
+}
+
 .cert-item h3 {
+    display: inline-block;
+    width: calc(100% - 76px);
+    vertical-align: middle;
     font-family: var(--font-heading);
     font-size: 1.1rem;
     color: var(--text-primary);
-    margin-bottom: 10px;
+    text-align: left;
+    margin: 0 0 10px;
+}
+
+.cert-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.cert-item > .btn,
+.cert-actions > .btn {
+    display: block;
+    width: max-content;
+    margin: 0 auto;
 }
 
 /* Contact Section */
@@ -1719,6 +1797,24 @@ footer p {
     .certifications-grid {
         grid-template-columns: 1fr;
     }
+
+    .seminars-certificates-grid,
+    .certifications-grid {
+        gap: 18px;
+    }
+
+    .certificate-item,
+    .cert-item {
+        padding: 12px;
+    }
+
+    .cert-preview {
+        margin-bottom: 14px;
+    }
+
+    .cert-actions {
+        width: 100%;
+    }
     
     #contact-form {
         padding: 30px 20px;
@@ -1802,6 +1898,31 @@ footer p {
     
     .section-title {
         font-size: 1.8rem;
+    }
+
+    .cert-logo {
+        width: 52px;
+        height: 52px;
+        margin-right: 6px;
+    }
+
+    .cert-item h3,
+    .certificate-item h4 {
+        width: calc(100% - 64px);
+        font-size: 1rem;
+    }
+
+    .certificate-item i {
+        width: 52px;
+        font-size: 2.1rem;
+        margin-right: 6px;
+    }
+
+    .cert-item > .btn,
+    .cert-actions > .btn,
+    .certificate-item > .btn {
+        width: 100%;
+        max-width: 260px;
     }
     
     .internship-gallery {
@@ -2479,4 +2600,22 @@ footer p {
     top: 0;
     left: 0;
     transform: rotateY(180deg);
+}
+
+@media (max-width: 900px) {
+    .certifications-grid,
+    .seminars-certificates-grid {
+        grid-template-columns: minmax(0, 1fr);
+        width: 100%;
+    }
+
+    .cert-item,
+    .certificate-item {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .cert-preview {
+        width: 100%;
+    }
 }
