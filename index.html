@@ -409,9 +409,10 @@
                                             <h3>Ride.ADNU App Showcase</h3>
                                             <p>A Comprehensive UI/UX demonstration of the different user modules also
                                                 available on the Google Play</p>
-                                                
+
                                             <div class="project-tags" style="margin: 10px 0;">
-                                                <span class="tag"><i class="fas fa-mobile-alt"></i> Mobile Developer</span>
+                                                <span class="tag"><i class="fas fa-mobile-alt"></i> Mobile
+                                                    Developer</span>
                                                 <span class="tag"><i class="fas fa-server"></i> Backend Developer</span>
                                                 <span class="tag">Kotlin (Compose)</span>
                                                 <span class="tag">Java Spring Boot</span>
@@ -526,19 +527,56 @@
                 <div class="project-card" onclick="openProjectGallery('University Web Portal')">
                     <img src="Projects/University Web Portal/Home.jpg" alt="University Web Portal">
                     <div class="project-content">
-                        <h3>University Web Portal</h3>
-                        <p>A comprehensive student dashboard providing access to schedules, grades, financial
-                            statements, and profile updates.</p>
+                        <h3
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                            University Web Portal
+                            <a href="https://8duinoide.github.io/University-Web-Portal/" target="_blank"
+                                rel="noopener noreferrer" onclick="event.stopPropagation()"
+                                style="color: var(--accent-color); font-size: 1rem; padding: 6px 10px; border-radius: 8px; background: rgba(0, 242, 234, 0.1); transition: all 0.3s ease;"
+                                onmouseover="this.style.background='rgba(0, 242, 234, 0.2)'; this.style.transform='translateY(-2px)';"
+                                onmouseout="this.style.background='rgba(0, 242, 234, 0.1)'; this.style.transform='translateY(0)';"
+                                title="Live Demo">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </h3>
+
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px; font-size: 0.75rem; color: var(--text-secondary);"
+                            onclick="event.stopPropagation()">
+                            <span style="display: flex; align-items: center; gap: 4px;">
+                                <i class="fas fa-key" style="color: var(--accent-color);"></i>
+                                <strong>STUDENT ID:</strong>
+                                <code
+                                    style="background: var(--subtle-bg); padding: 2px 6px; border-radius: 4px; cursor: pointer; color: var(--text-color); border: 1px solid var(--border-color); transition: border-color 0.2s;"
+                                    onclick="navigator.clipboard.writeText('123456'); showNotification('Student ID copied!', 'success');"
+                                    onmouseover="this.style.borderColor='var(--accent-color)'"
+                                    onmouseout="this.style.borderColor='var(--border-color)'" title="Copy">123456</code>
+                            </span>
+                            <span style="display: flex; align-items: center; gap: 4px;">
+                                <strong>Pass:</strong>
+                                <code
+                                    style="background: var(--subtle-bg); padding: 2px 6px; border-radius: 4px; cursor: pointer; color: var(--text-color); border: 1px solid var(--border-color); transition: border-color 0.2s;"
+                                    onclick="navigator.clipboard.writeText('password'); showNotification('Password copied!', 'success');"
+                                    onmouseover="this.style.borderColor='var(--accent-color)'"
+                                    onmouseout="this.style.borderColor='var(--border-color)'"
+                                    title="Copy">password</code>
+                            </span>
+                        </div>
+
+                        <p style="margin-top: 0;">A comprehensive student dashboard providing access to schedules,
+                            grades, financial statements, and profile updates.</p>
+
                         <div class="project-tags">
                             <span class="tag">Web Dev</span>
                             <span class="tag">Node.js</span>
                         </div>
                         <div class="project-actions">
                             <a href="https://github.com/8DUINOide/University-Web-Portal" target="_blank"
-                                class="btn btn-outline">
+                                class="btn btn-outline" onclick="event.stopPropagation()">
                                 <i class="fab fa-github"></i> View on GitHub
                             </a>
-                            <a href="#" class="btn btn-primary">Live Demo</a>
+                            <a href="#" class="btn btn-primary"
+                                onclick="event.preventDefault(); openProjectGallery('University Web Portal');">Live
+                                Demo</a>
                         </div>
                     </div>
                 </div>
@@ -654,137 +692,159 @@
                 <div class="flip-card-inner" id="jobai-flip-inner">
                     <div class="flip-card-front">
                         <div class="event-row">
-                    <div class="event-info">
-                        <div class="event-header">
-                            <div class="event-icon" style="background: none; padding: 0;">
-                                <img src="Projects/Ongoing Projects/JobAi/JobAi app icon.png" alt="JobAi App Icon"
-                                    style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 242, 234, 0.2);">
-                            </div>
-                            <div>
-                                <h3>JobAi <span class="tag"
-                                        style="background: var(--accent-color); color: var(--btn-text); margin-left: 8px; font-size: 12px; vertical-align: middle;">Launched
-                                        (in Testing)</span></h3>
-                                <p>AI-powered job-hunting assistant that automates scraping, resume tailoring, and
-                                    application tracking.</p>
+                            <div class="event-info">
+                                <div class="event-header">
+                                    <div class="event-icon" style="background: none; padding: 0;">
+                                        <img src="Projects/Ongoing Projects/JobAi/JobAi app icon.png"
+                                            alt="JobAi App Icon"
+                                            style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 242, 234, 0.2);">
+                                    </div>
+                                    <div>
+                                        <h3>JobAi <span class="tag"
+                                                style="background: var(--accent-color); color: var(--btn-text); margin-left: 8px; font-size: 12px; vertical-align: middle;">Launched
+                                                (in Testing)</span></h3>
+                                        <p>AI-powered job-hunting assistant that automates scraping, resume tailoring,
+                                            and
+                                            application tracking.</p>
 
-                                <div class="project-tags" style="margin: 10px 0;">
-                                    <span class="tag"><i class="fas fa-robot"></i> AI Automation</span>
-                                    <span class="tag"><i class="fas fa-laptop-code"></i> Full Stack</span>
-                                    <span class="tag">Python</span>
-                                    <span class="tag">Gemini AI</span>
-                                    <span class="tag">Firebase</span>
-                                    <span class="tag">Android</span>
+                                        <div class="project-tags" style="margin: 10px 0;">
+                                            <span class="tag"><i class="fas fa-robot"></i> AI Automation</span>
+                                            <span class="tag"><i class="fas fa-laptop-code"></i> Full Stack</span>
+                                            <span class="tag">Python</span>
+                                            <span class="tag">Gemini AI</span>
+                                            <span class="tag">Firebase</span>
+                                            <span class="tag">Android</span>
+                                        </div>
+
+                                        <div class="appbuilders-widget"
+                                            style="margin-top: 10px; display: flex; flex-direction: row; gap: 10px; align-items: center; flex-wrap: wrap;">
+                                            <iframe id="appbuilders-jobai-iframe"
+                                                src="https://appbuildersph.com/embed/apps/jobai"
+                                                title="JobAi votes on App Builders PH" width="320" height="72"
+                                                style="border:0; display:none;" loading="lazy" scrolling="no"
+                                                onload="this.style.display='block'; document.getElementById('appbuilders-jobai-fallback').style.display='none';"></iframe>
+                                            <a id="appbuilders-jobai-fallback"
+                                                href="https://appbuildersph.com/apps/jobai" target="_blank"
+                                                rel="noopener noreferrer"
+                                                style="display:inline-flex; align-items:center; gap:8px; padding:10px 20px; background:linear-gradient(135deg, #00f2ea, #00d4aa); color:#0a0a0a; border-radius:10px; text-decoration:none; font-family:'Inter',sans-serif; font-weight:600; font-size:14px; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 2px 10px rgba(0,242,234,0.3);"
+                                                onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 15px rgba(0,242,234,0.4)';"
+                                                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 10px rgba(0,242,234,0.3)';">
+                                                <i class="fas fa-trophy"></i> Vote on App Builders PH
+                                                <i class="fas fa-external-link-alt"
+                                                    style="font-size:11px; opacity:0.7;"></i>
+                                            </a>
+                                            <a href="https://appbuildersph.com/testers/jobai" target="_blank"
+                                                rel="noopener noreferrer" class="btn btn-outline"
+                                                style="display:inline-flex; align-items:center; gap:8px; padding:10px 20px; font-size: 14px;">
+                                                <i class="fas fa-users"></i> Become a Tester
+                                                <i class="fas fa-external-link-alt"
+                                                    style="font-size:11px; opacity:0.7;"></i>
+                                            </a>
+                                            <button
+                                                onclick="document.getElementById('jobai-flip-inner').classList.add('flipped')"
+                                                class="btn btn-primary"
+                                                style="display:inline-flex; align-items:center; gap:8px; padding:10px 20px; font-size: 14px; border: none; cursor: pointer;">
+                                                Resume Builder <i class="fas fa-arrow-right"></i>
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
-
-                                <div class="appbuilders-widget"
-                                    style="margin-top: 10px; display: flex; flex-direction: row; gap: 10px; align-items: center; flex-wrap: wrap;">
-                                    <iframe id="appbuilders-jobai-iframe"
-                                        src="https://appbuildersph.com/embed/apps/jobai"
-                                        title="JobAi votes on App Builders PH" width="320" height="72"
-                                        style="border:0; display:none;" loading="lazy" scrolling="no"
-                                        onload="this.style.display='block'; document.getElementById('appbuilders-jobai-fallback').style.display='none';"></iframe>
-                                    <a id="appbuilders-jobai-fallback" href="https://appbuildersph.com/apps/jobai"
-                                        target="_blank" rel="noopener noreferrer"
-                                        style="display:inline-flex; align-items:center; gap:8px; padding:10px 20px; background:linear-gradient(135deg, #00f2ea, #00d4aa); color:#0a0a0a; border-radius:10px; text-decoration:none; font-family:'Inter',sans-serif; font-weight:600; font-size:14px; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 2px 10px rgba(0,242,234,0.3);"
-                                        onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 15px rgba(0,242,234,0.4)';"
-                                        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 10px rgba(0,242,234,0.3)';">
-                                        <i class="fas fa-trophy"></i> Vote on App Builders PH
-                                        <i class="fas fa-external-link-alt" style="font-size:11px; opacity:0.7;"></i>
-                                    </a>
-                                    <a href="https://appbuildersph.com/testers/jobai" target="_blank"
-                                        rel="noopener noreferrer" class="btn btn-outline"
-                                        style="display:inline-flex; align-items:center; gap:8px; padding:10px 20px; font-size: 14px;">
-                                        <i class="fas fa-users"></i> Become a Tester
-                                        <i class="fas fa-external-link-alt" style="font-size:11px; opacity:0.7;"></i>
-                                    </a>
-                                    <button onclick="document.getElementById('jobai-flip-inner').classList.add('flipped')" class="btn btn-primary" style="display:inline-flex; align-items:center; gap:8px; padding:10px 20px; font-size: 14px; border: none; cursor: pointer;">
-                                        <i class="fas fa-sync-alt"></i> See Resume Builder Feature
-                                    </button>
-                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="event-images-scroll">
-                        <div class="event-carousel">
-                            <img src="Projects/Ongoing Projects/JobAi/JobAi@AppBuildersPH.jpg" alt="JobAi Screen"
-                                class="event-carousel-img portrait-img">
-                            <img src="Projects/Ongoing Projects/JobAi/Login Screen.jpg" alt="JobAi Screen"
-                                class="event-carousel-img portrait-img">
-                            <img src="Projects/Ongoing Projects/JobAi/Upload your Resume.jpg" alt="JobAi Screen"
-                                class="event-carousel-img portrait-img">
-                            <img src="Projects/Ongoing Projects/JobAi/Portfolio or LinkedIn.jpg" alt="JobAi Screen"
-                                class="event-carousel-img portrait-img">
-                            <img src="Projects/Ongoing Projects/JobAi/Target Roles.jpg" alt="JobAi Screen"
-                                class="event-carousel-img portrait-img">
-                            <img src="Projects/Ongoing Projects/JobAi/Ready to Launch.jpg" alt="JobAi Screen"
-                                class="event-carousel-img portrait-img">
-                            <img src="Projects/Ongoing Projects/JobAi/Profile Screen.jpg" alt="JobAi Screen"
-                                class="event-carousel-img portrait-img">
-                            <img src="Projects/Ongoing Projects/JobAi/Home Screen.jpg" alt="JobAi Screen"
-                                class="event-carousel-img portrait-img">
-                            <img src="Projects/Ongoing Projects/JobAi/Job Discovery Screen.jpg" alt="JobAi Screen"
-                                class="event-carousel-img portrait-img">
-                            <img src="Projects/Ongoing Projects/JobAi/Paste Job Description.jpg" alt="JobAi Screen"
-                                class="event-carousel-img portrait-img">
-                            <img src="Projects/Ongoing Projects/JobAi/Tailor Resume.jpg" alt="JobAi Screen"
-                                class="event-carousel-img portrait-img">
-                            <img src="Projects/Ongoing Projects/JobAi/ATS Friendly Resume.jpg" alt="JobAi Screen"
-                                class="event-carousel-img portrait-img">
-                            <img src="Projects/Ongoing Projects/JobAi/Application Tracker.jpg" alt="JobAi Screen"
-                                class="event-carousel-img portrait-img">
-                            <img src="Projects/Ongoing Projects/JobAi/Update Status.jpg" alt="JobAi Screen"
-                                class="event-carousel-img portrait-img">
-                        </div>
-                    </div>
-                </div>
-                </div>
-
-                <!-- Resume Builder Showcase (Back side) -->
-                <div class="flip-card-back" style="height: 100%;">
-                <div class="event-row" style="height: 100%;">
-                    <div class="event-info">
-                        <div class="event-header">
-                            <div class="event-icon" style="background: none; padding: 0;">
-                                <img src="Projects/Resume Builder/artex-icon.jpg" alt="Artex Resume Builder Icon"
-                                    style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 242, 234, 0.2);">
-                            </div>
-                            <div>
-                                <h3>Artex Resume Builder</h3>
-                                <p>A web-based resume builder originally from JobAi, improved with multiple templates and AI extraction.</p>
-                                
-                                <div class="project-tags" style="margin: 10px 0;">
-                                    <span class="tag"><i class="fas fa-laptop-code"></i> Web App</span>
-                                    <span class="tag"><i class="fas fa-robot"></i> AI Integration</span>
-                                </div>
-
-                                <div style="margin-top: 15px; display: flex; flex-wrap: wrap; gap: 10px;">
-                                    <a href="https://artex-resume-builder.vercel.app/index.html" target="_blank"
-                                        rel="noopener noreferrer" class="btn btn-outline"
-                                        style="display:inline-flex; align-items:center; gap:8px; padding:10px 20px; font-size: 14px;">
-                                        <i class="fas fa-external-link-alt"></i> Try Resume Builder
-                                    </a>
-                                    <button onclick="document.getElementById('jobai-flip-inner').classList.remove('flipped')" class="btn btn-primary" style="display:inline-flex; align-items:center; gap:8px; padding:10px 20px; font-size: 14px; border: none; cursor: pointer;">
-                                        <i class="fas fa-arrow-left"></i> Back to JobAi
-                                    </button>
+                            <div class="event-images-scroll">
+                                <div class="event-carousel">
+                                    <img src="Projects/Ongoing Projects/JobAi/JobAi@AppBuildersPH.jpg"
+                                        alt="JobAi Screen" class="event-carousel-img portrait-img">
+                                    <img src="Projects/Ongoing Projects/JobAi/Login Screen.jpg" alt="JobAi Screen"
+                                        class="event-carousel-img portrait-img">
+                                    <img src="Projects/Ongoing Projects/JobAi/Upload your Resume.jpg" alt="JobAi Screen"
+                                        class="event-carousel-img portrait-img">
+                                    <img src="Projects/Ongoing Projects/JobAi/Portfolio or LinkedIn.jpg"
+                                        alt="JobAi Screen" class="event-carousel-img portrait-img">
+                                    <img src="Projects/Ongoing Projects/JobAi/Target Roles.jpg" alt="JobAi Screen"
+                                        class="event-carousel-img portrait-img">
+                                    <img src="Projects/Ongoing Projects/JobAi/Ready to Launch.jpg" alt="JobAi Screen"
+                                        class="event-carousel-img portrait-img">
+                                    <img src="Projects/Ongoing Projects/JobAi/Profile Screen.jpg" alt="JobAi Screen"
+                                        class="event-carousel-img portrait-img">
+                                    <img src="Projects/Ongoing Projects/JobAi/Home Screen.jpg" alt="JobAi Screen"
+                                        class="event-carousel-img portrait-img">
+                                    <img src="Projects/Ongoing Projects/JobAi/Job Discovery Screen.jpg"
+                                        alt="JobAi Screen" class="event-carousel-img portrait-img">
+                                    <img src="Projects/Ongoing Projects/JobAi/Paste Job Description.jpg"
+                                        alt="JobAi Screen" class="event-carousel-img portrait-img">
+                                    <img src="Projects/Ongoing Projects/JobAi/Tailor Resume.jpg" alt="JobAi Screen"
+                                        class="event-carousel-img portrait-img">
+                                    <img src="Projects/Ongoing Projects/JobAi/ATS Friendly Resume.jpg"
+                                        alt="JobAi Screen" class="event-carousel-img portrait-img">
+                                    <img src="Projects/Ongoing Projects/JobAi/Application Tracker.jpg"
+                                        alt="JobAi Screen" class="event-carousel-img portrait-img">
+                                    <img src="Projects/Ongoing Projects/JobAi/Update Status.jpg" alt="JobAi Screen"
+                                        class="event-carousel-img portrait-img">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="event-images-scroll">
-                        <div class="event-carousel">
-                            <img src="Projects/Resume Builder/Sign-In.png" alt="Sign-In" class="event-carousel-img landscape-img" onclick="openLightbox(this.src)">
-                            <img src="Projects/Resume Builder/Resume Details.png" alt="Resume Details" class="event-carousel-img landscape-img" onclick="openLightbox(this.src)">
-                            <img src="Projects/Resume Builder/AI Scanner.png" alt="AI Scanner" class="event-carousel-img landscape-img" onclick="openLightbox(this.src)">
-                            <img src="Projects/Resume Builder/Extraction.png" alt="Extraction" class="event-carousel-img landscape-img" onclick="openLightbox(this.src)">
-                            <img src="Projects/Resume Builder/Auto-Filled.png" alt="Auto-Filled" class="event-carousel-img landscape-img" onclick="openLightbox(this.src)">
-                            <img src="Projects/Resume Builder/Profile Photo.png" alt="Profile Photo" class="event-carousel-img landscape-img" onclick="openLightbox(this.src)">
-                            <img src="Projects/Resume Builder/Templates.png" alt="Templates" class="event-carousel-img landscape-img" onclick="openLightbox(this.src)">
-                            <img src="Projects/Resume Builder/Live Preview.png" alt="Live Preview" class="event-carousel-img landscape-img" onclick="openLightbox(this.src)">
-                            <img src="Projects/Resume Builder/Generate Order.png" alt="Generate Order" class="event-carousel-img landscape-img" onclick="openLightbox(this.src)">
+
+                    <!-- Resume Builder Showcase (Back side) -->
+                    <div class="flip-card-back" style="height: 100%;">
+                        <div class="event-row" style="height: 100%;">
+                            <div class="event-info">
+                                <div class="event-header">
+                                    <div class="event-icon" style="background: none; padding: 0;">
+                                        <img src="Projects/Resume Builder/artex-icon.jpg"
+                                            alt="Artex Resume Builder Icon"
+                                            style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 242, 234, 0.2);">
+                                    </div>
+                                    <div>
+                                        <h3>Artex Resume Builder</h3>
+                                        <p>A web-based resume builder originally from JobAi, improved with multiple
+                                            templates and AI extraction.</p>
+
+                                        <div class="project-tags" style="margin: 10px 0;">
+                                            <span class="tag"><i class="fas fa-laptop-code"></i> Web App</span>
+                                            <span class="tag"><i class="fas fa-robot"></i> AI Integration</span>
+                                        </div>
+
+                                        <div style="margin-top: 15px; display: flex; flex-wrap: wrap; gap: 10px;">
+                                            <a href="https://artex-resume-builder.vercel.app/index.html" target="_blank"
+                                                rel="noopener noreferrer" class="btn btn-outline"
+                                                style="display:inline-flex; align-items:center; gap:8px; padding:10px 20px; font-size: 14px;">
+                                                <i class="fas fa-external-link-alt"></i> Try Resume Builder
+                                            </a>
+                                            <button
+                                                onclick="document.getElementById('jobai-flip-inner').classList.remove('flipped')"
+                                                class="btn btn-primary"
+                                                style="display:inline-flex; align-items:center; gap:8px; padding:10px 20px; font-size: 14px; border: none; cursor: pointer;">
+                                                <i class="fas fa-arrow-left"></i> Back to JobAi
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="event-images-scroll">
+                                <div class="event-carousel">
+                                    <img src="Projects/Resume Builder/Sign-In.png" alt="Sign-In"
+                                        class="event-carousel-img landscape-img" onclick="openLightbox(this.src)">
+                                    <img src="Projects/Resume Builder/Resume Details.png" alt="Resume Details"
+                                        class="event-carousel-img landscape-img" onclick="openLightbox(this.src)">
+                                    <img src="Projects/Resume Builder/AI Scanner.png" alt="AI Scanner"
+                                        class="event-carousel-img landscape-img" onclick="openLightbox(this.src)">
+                                    <img src="Projects/Resume Builder/Extraction.png" alt="Extraction"
+                                        class="event-carousel-img landscape-img" onclick="openLightbox(this.src)">
+                                    <img src="Projects/Resume Builder/Auto-Filled.png" alt="Auto-Filled"
+                                        class="event-carousel-img landscape-img" onclick="openLightbox(this.src)">
+                                    <img src="Projects/Resume Builder/Profile Photo.png" alt="Profile Photo"
+                                        class="event-carousel-img landscape-img" onclick="openLightbox(this.src)">
+                                    <img src="Projects/Resume Builder/Templates.png" alt="Templates"
+                                        class="event-carousel-img landscape-img" onclick="openLightbox(this.src)">
+                                    <img src="Projects/Resume Builder/Live Preview.png" alt="Live Preview"
+                                        class="event-carousel-img landscape-img" onclick="openLightbox(this.src)">
+                                    <img src="Projects/Resume Builder/Generate Order.png" alt="Generate Order"
+                                        class="event-carousel-img landscape-img" onclick="openLightbox(this.src)">
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                </div>
                 </div>
             </div>
         </div>

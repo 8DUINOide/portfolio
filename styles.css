@@ -736,6 +736,8 @@ body {
     overflow: hidden;
     transition: all 0.3s ease;
     backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
 }
 
 .project-card:hover {
@@ -752,6 +754,9 @@ body {
 
 .project-content {
     padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .project-content h3 {
@@ -786,6 +791,7 @@ body {
 .project-actions {
     display: flex;
     gap: 15px;
+    margin-top: auto;
 }
 
 /* Internships Section */
