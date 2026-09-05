@@ -417,7 +417,7 @@ document.addEventListener('DOMContentLoaded', () => {
         img.src = imageSrc;
     };
 
-    document.querySelectorAll('.cert-item, .certificate-item').forEach((certificate) => {
+    document.querySelectorAll('#certifications .cert-item, #seminars .certificate-item').forEach((certificate) => {
         const viewLink = certificate.querySelector('a[onclick*="openCertificateLightbox"]');
         const clickHandler = viewLink?.getAttribute('onclick') || certificate.getAttribute('onclick');
         const pdfMatch = clickHandler?.match(/openCertificateLightbox\('([^']+\.pdf)'\)/i);
