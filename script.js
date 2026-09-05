@@ -500,7 +500,7 @@ document.addEventListener('DOMContentLoaded', () => {
         preview.className = 'cert-preview';
         preview.setAttribute('aria-hidden', 'true');
         if (/Smart Transport Surveys/i.test(pdfMatch[1])) {
-            preview.classList.add('cert-preview--rotate-180');
+            preview._rotationCorrection = 180;
         }
 
         const previewCanvas = document.createElement('canvas');
