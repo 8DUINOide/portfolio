@@ -1816,8 +1816,8 @@ footer p {
         gap: 18px;
     }
 
-    .certificate-item,
-    .cert-item {
+    #seminars .certificate-item,
+    #certifications .cert-item {
         padding: 12px;
     }
 
@@ -1919,21 +1919,21 @@ footer p {
         margin-right: 6px;
     }
 
-    .cert-item h3,
-    .certificate-item h4 {
+    #certifications .cert-item h3,
+    #seminars .certificate-item h4 {
         width: calc(100% - 64px);
         font-size: 1rem;
     }
 
-    .certificate-item i {
+    #seminars .certificate-item i {
         width: 52px;
         font-size: 2.1rem;
         margin-right: 6px;
     }
 
-    .cert-item > .btn,
-    .cert-actions > .btn,
-    .certificate-item > .btn {
+    #certifications .cert-item > .btn,
+    #certifications .cert-actions > .btn,
+    #seminars .certificate-item > .btn {
         width: 100%;
         max-width: 260px;
     }
@@ -2629,8 +2629,8 @@ footer p {
         width: 100%;
     }
 
-    .cert-item,
-    .certificate-item {
+    #certifications .cert-item,
+    #seminars .certificate-item {
         min-width: 0;
         width: 100%;
     }
@@ -2654,15 +2654,15 @@ footer p {
         gap: 18px;
     }
 
-    .cert-item,
-    .certificate-item {
+    #certifications .cert-item,
+    #seminars .certificate-item {
         width: 100%;
         min-width: 0;
         padding: 12px;
     }
 
-    .cert-item h3,
-    .certificate-item h4 {
+    #certifications .cert-item h3,
+    #seminars .certificate-item h4 {
         max-width: calc(100% - 64px);
         overflow-wrap: anywhere;
     }
@@ -2671,9 +2671,9 @@ footer p {
         width: 100%;
     }
 
-    .cert-item > .btn,
-    .cert-actions > .btn,
-    .certificate-item > .btn {
+    #certifications .cert-item > .btn,
+    #certifications .cert-actions > .btn,
+    #seminars .certificate-item > .btn {
         width: min(100%, 260px);
     }
 
