@@ -647,8 +647,8 @@ body {
 }
 
 .education-card:hover {
-    border-color: var(--accent-color);
-    box-shadow: 0 20px 40px rgba(0, 242, 234, 0.1);
+    border-color: var(--border-color);
+    box-shadow: none;
 }
 
 .education-header {
@@ -690,9 +690,9 @@ body {
 
 .thesis-section {
     background: var(--subtle-bg);
-    border-left: 4px solid var(--accent-color);
+    border-left: 1px solid var(--border-color);
     padding: 25px;
-    border-radius: 0 15px 15px 0;
+    border-radius: 15px;
 }
 
 .thesis-badge {
@@ -1996,20 +1996,18 @@ footer p {
 }
 
 .offline-demo-note {
-    background: rgba(0, 242, 234, 0.03);
-    border: 1px solid rgba(0, 242, 234, 0.08);
-    border-left: 4px solid var(--accent-color);
-    border-radius: 4px 16px 16px 4px;
-    padding: 18px 22px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 18px 20px;
     margin-top: 25px;
     font-size: 0.95rem;
     line-height: 1.6;
     color: var(--text-secondary);
-    box-shadow: 0 8px 32px rgba(0, 242, 234, 0.02);
 }
 
 .offline-demo-note strong {
-    color: var(--accent-color);
+    color: var(--text-primary);
 }
 
 .offline-demo-note code {
@@ -2024,7 +2022,7 @@ footer p {
 
 .offline-demo-note i {
     margin-right: 8px;
-    color: var(--accent-color);
+    color: var(--text-secondary);
 }
 
 .thesis-app-showcase {
