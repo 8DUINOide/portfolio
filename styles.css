@@ -998,6 +998,14 @@ body {
     animation-play-state: paused;
 }
 
+.resume-builder-carousel .event-carousel {
+    animation-name: resumeBuilderScroll;
+}
+
+.resume-builder-carousel .event-carousel-img.landscape-img {
+    width: min(70vw, 700px);
+}
+
 .event-carousel::-webkit-scrollbar {
     display: none; /* Hide scrollbar for Chrome, Safari, Opera */
 }
@@ -1981,6 +1989,11 @@ footer p {
     100% { transform: translateX(-50%); }
 }
 
+@keyframes resumeBuilderScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-1 * var(--carousel-loop-distance))); }
+}
+
 /* Exhibit and Interactive Shuttle Thesis Section Styles */
 .thesis-layout {
     display: grid;
@@ -2625,6 +2638,13 @@ footer p {
     .cert-preview {
         width: 100%;
     }
+
+    .resume-builder-carousel .event-carousel-img.landscape-img {
+        flex: 0 0 min(78vw, 520px);
+        width: auto;
+        height: auto;
+        aspect-ratio: 16 / 10;
+    }
 }
 
 @media (max-width: 600px) {
@@ -2655,5 +2675,10 @@ footer p {
     .cert-actions > .btn,
     .certificate-item > .btn {
         width: min(100%, 260px);
+    }
+
+    .resume-builder-carousel .event-carousel-img.landscape-img {
+        flex-basis: calc(100vw - 48px);
+        max-width: calc(100vw - 48px);
     }
 }

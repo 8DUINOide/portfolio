@@ -883,6 +883,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 const clone = item.cloneNode(true);
                 carousel.appendChild(clone);
             });
+
+            if (carousel.closest('.resume-builder-carousel')) {
+                const updateLoopDistance = () => {
+                    const lastOriginal = items[items.length - 1];
+                    const gap = parseFloat(getComputedStyle(carousel).gap) || 0;
+                    const loopDistance = lastOriginal.offsetLeft + lastOriginal.offsetWidth + gap;
+                    carousel.style.setProperty('--carousel-loop-distance', `${loopDistance}px`);
+                };
+
+                updateLoopDistance();
+                window.addEventListener('resize', updateLoopDistance);
+            }
         });
     }
 
