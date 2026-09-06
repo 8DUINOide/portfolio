@@ -2626,3 +2626,34 @@ footer p {
         width: 100%;
     }
 }
+
+@media (max-width: 600px) {
+    .certifications-grid,
+    .seminars-certificates-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+    }
+
+    .cert-item,
+    .certificate-item {
+        width: 100%;
+        min-width: 0;
+        padding: 12px;
+    }
+
+    .cert-item h3,
+    .certificate-item h4 {
+        max-width: calc(100% - 64px);
+        overflow-wrap: anywhere;
+    }
+
+    .cert-actions {
+        width: 100%;
+    }
+
+    .cert-item > .btn,
+    .cert-actions > .btn,
+    .certificate-item > .btn {
+        width: min(100%, 260px);
+    }
+}
