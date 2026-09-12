@@ -234,22 +234,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Typing Effect
     const textElement = document.querySelector('.typing-text');
-    const texts = ['Backend Developer', 'Android Developer', 'Software Engineer', 'Tech Enthusiast'];
+    const articleElement = document.getElementById('article-text');
+    
+    const roles = [
+        "Android Developer",
+        "Backend Developer",
+        "Software Engineer",
+        "Tech Enthusiast"
+    ];
+
+    function getIndefiniteArticle(word) {
+        const vowels = ['A', 'E', 'I', 'O', 'U'];
+        return vowels.includes(word.charAt(0).toUpperCase()) ? 'an' : 'a';
+    }
+
     let count = 0;
     let index = 0;
-    let currentText = '';
+    let currentRole = '';
     let letter = '';
 
     function type() {
-        if (count === texts.length) {
+        if (count === roles.length) {
             count = 0;
         }
-        currentText = texts[count];
-        letter = currentText.slice(0, ++index);
+        currentRole = roles[count];
+        
+        // Update the article at the beginning of the word
+        if (index === 0 && articleElement) {
+            articleElement.textContent = getIndefiniteArticle(currentRole);
+        }
 
+        letter = currentRole.slice(0, ++index);
         textElement.textContent = letter;
 
-        if (letter.length === currentText.length) {
+        if (letter.length === currentRole.length) {
             count++;
             index = 0;
             setTimeout(type, 2000); // Pause at end of word
