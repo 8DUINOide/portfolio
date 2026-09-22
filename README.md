@@ -1,4 +1,4 @@
-# <img src="assets/favicon/8D.jpg" alt="8D Logo" width="30" align="top"> Al Francis B. Paz - Personal Portfolio
+# <img src="assets/favicon/8D.jpg" alt="8D Logo" width="120" align="top"> Al Francis B. Paz - Personal Portfolio
 
 Welcome to the repository for my personal portfolio website! This site showcases my background, education, projects, internships, and technical skills as a Computer Engineering graduate from Ateneo De Naga University.
 
