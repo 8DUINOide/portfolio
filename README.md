@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="8D.jpg" alt="8D Logo" width="120">
+  <img src="assets/favicon/8D.jpg" alt="8D Logo" width="120">
 </p>
 
 # Al Francis B. Paz - Personal Portfolio
@@ -31,7 +31,11 @@ This is a fully responsive, static website built from scratch using vanilla web 
 *   `index.html` - The main HTML document containing all sections (Hero, About, Education, Projects, etc.).
 *   `styles.css` - The core stylesheet including theme variables, animations, and responsive media queries.
 *   `script.js` - The main JavaScript file handling navigation, theme toggling, typing effects, and gallery lightboxes.
-*   Assets (Directories) - Various folders like `Projects/`, `Events/`, `Internships/`, `Certifications/` containing images and PDFs showcased on the site.
+*   `assets/images/` - Logos, profile photos, and static images used across the site.
+*   `assets/favicon/` - The site favicon (`8D.jpg`).
+*   `docs/` - Resumes (PDF), printable resume HTML pages, and related documents.
+*   `backups/` - Backup versions of core files (`index_backup.html`, `script_backup.js`, `styles_backup.css`).
+*   Content Directories - `Projects/`, `Events/`, `Internships/`, `Certifications/`, `Organizations/`, etc.
 
 ## Live Demo
 
