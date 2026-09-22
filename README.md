@@ -1,6 +1,12 @@
-# <img src="assets/favicon/8D.jpg" alt="8D Logo" width="120" align="top"> Al Francis B. Paz - Personal Portfolio
+# <img src="assets/favicon/8D.jpg" alt="8D Logo" width="120" align="center"> Al Francis B. Paz - Personal Portfolio
 
 Welcome to the repository for my personal portfolio website! This site showcases my background, education, projects, internships, and technical skills as a Computer Engineering graduate from Ateneo De Naga University.
+
+## Live Demo
+
+It is deployed and can be viewed live at:
+
+**[https://8duinoide.github.io/portfolio/](https://8duinoide.github.io/portfolio/)**
 
 ## Overview
 
@@ -32,14 +38,6 @@ This is a fully responsive, static website built from scratch using vanilla web 
 *   `docs/` - Resumes (PDF), printable resume HTML pages, and related documents.
 *   `backups/` - Backup versions of core files (`index_backup.html`, `script_backup.js`, `styles_backup.css`).
 *   Content Directories - `Projects/`, `Events/`, `Internships/`, `Certifications/`, `Organizations/`, etc.
-
-## Live Demo
-
-You don't need to clone this repository to view the portfolio. It is deployed and can be viewed live at:
-
-**[https://8duinoide.github.io/portfolio/](https://8duinoide.github.io/portfolio/)**
-
-*(If you still wish to run or edit it locally, you can clone the repository and open `index.html` using a local web server like VS Code's Live Server.)*
 
 ## Contact
 
