@@ -2463,6 +2463,13 @@ footer p {
     padding: 4px 0;
     flex: 1;
     min-width: 0;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.github-heatmap-wrapper::-webkit-scrollbar {
+    display: none;
 }
 
 /* Dynamic Contribution Grid (SVG-based) */
@@ -2473,6 +2480,7 @@ footer p {
 .github-heatmap-grid svg {
     display: block;
     width: 100%;
+    min-width: 750px;
     height: auto;
 }
 
