@@ -816,6 +816,56 @@ body {
     text-align: center;
 }
 
+.google-play-cta {
+    background: #111111;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.google-play-cta:hover {
+    background: #222222;
+    border-color: var(--accent-color);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.action-buttons-container > .appbuilders-widget > a,
+.action-buttons-container > .google-play-cta {
+    height: 44px;
+    min-height: 44px;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.google-play-icon {
+    width: 22px;
+    height: 22px;
+    flex: 0 0 22px;
+    margin-right: 8px;
+    display: block;
+}
+
+.google-play-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.1;
+    text-align: left;
+}
+
+.google-play-subtext {
+    color: #a1a1aa;
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+}
+
+.google-play-maintext {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+}
+
 /* Internships Section */
 .internship-timeline {
     width: 100%;
@@ -1751,6 +1801,10 @@ footer p {
         align-items: center;
         order: 4;
     }
+
+    .typing-container {
+        order: 5;
+    }
     
     .profile-img {
         width: 200px;
@@ -1766,7 +1820,7 @@ footer p {
     .hero-actions {
         justify-content: center;
         flex-wrap: wrap;
-        order: 5;
+        order: 6;
     }
 
     .hero-actions,
@@ -1791,21 +1845,6 @@ footer p {
         display: flex !important;
         align-items: center;
         justify-content: center;
-    }
-
-    .action-buttons-container > a img {
-        width: 100% !important;
-        max-width: none;
-        height: 48px !important;
-        object-fit: fill;
-    }
-
-    .action-buttons-container .google-play-button-badge {
-        display: block;
-        width: 100% !important;
-        max-width: none;
-        height: 48px !important;
-        object-fit: fill;
     }
 
     .action-buttons-container .appbuilders-widget {
@@ -2818,7 +2857,8 @@ footer p {
     .action-buttons-container {
         display: grid !important;
         width: 100%;
-        grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-auto-rows: 56px;
         gap: 12px;
         align-items: stretch;
     }
@@ -2837,23 +2877,26 @@ footer p {
 
     .action-buttons-container .appbuilders-widget > a {
         width: 100%;
-        min-height: 48px;
+        height: 56px !important;
+        min-height: 56px !important;
         box-sizing: border-box;
-        padding: 8px 10px !important;
+        padding: 6px 8px !important;
         gap: 5px !important;
-        font-size: 12px !important;
-        line-height: 1.15;
+        font-size: 10px !important;
+        line-height: 1.1;
     }
 
     .action-buttons-container > a {
-        min-height: 48px;
+        height: 56px !important;
+        min-height: 56px !important;
         box-sizing: border-box;
     }
 
-    .action-buttons-container .google-play-button-badge {
-        width: 100% !important;
-        height: 48px !important;
+    .action-buttons-container .google-play-cta {
+        padding: 6px 8px;
+        gap: 0;
     }
+
 
     .hero-actions {
         display: grid;
