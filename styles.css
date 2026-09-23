@@ -805,7 +805,7 @@ body {
 }
 
 .appbuilders-widget {
-    width: 100%;
+    width: auto;
 }
 
 .appbuilders-widget > a {
@@ -2809,5 +2809,63 @@ footer p {
 
     .appbuilders-widget > a {
         width: 100%;
+    }
+
+    .action-buttons-container .appbuilders-widget {
+        width: 100%;
+    }
+
+    .action-buttons-container {
+        display: grid !important;
+        width: 100%;
+        grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+        gap: 12px;
+        align-items: stretch;
+    }
+
+    .action-buttons-container > .appbuilders-widget,
+    .action-buttons-container > a {
+        width: 100%;
+        flex: none;
+        min-width: 0;
+    }
+
+    .action-buttons-container .appbuilders-widget {
+        display: block !important;
+        width: 100%;
+    }
+
+    .action-buttons-container .appbuilders-widget > a {
+        width: 100%;
+        min-height: 48px;
+        box-sizing: border-box;
+        padding: 8px 10px !important;
+        gap: 5px !important;
+        font-size: 12px !important;
+        line-height: 1.15;
+    }
+
+    .action-buttons-container > a {
+        min-height: 48px;
+        box-sizing: border-box;
+    }
+
+    .action-buttons-container .google-play-button-badge {
+        width: 100% !important;
+        height: 48px !important;
+    }
+
+    .hero-actions {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 12px;
+        align-items: stretch;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+        min-width: 0;
+        min-height: 48px;
+        box-sizing: border-box;
     }
 }
