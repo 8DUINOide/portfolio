@@ -44,6 +44,11 @@
 
 <body>
 
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar" id="scroll-progress"></div>
+    </div>
+
     <!-- Sticky Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -1564,6 +1569,13 @@
 
         // Fetch initial data for current year on load
         selectYear(new Date().getFullYear());
+
+        // Scroll Progress Bar Logic
+        window.addEventListener('scroll', () => {
+            const scrollTotal = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollProgress = (document.documentElement.scrollTop / scrollTotal) * 100;
+            document.getElementById('scroll-progress').style.width = scrollProgress + '%';
+        });
     </script>
 </body>
 
