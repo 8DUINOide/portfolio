@@ -1571,11 +1571,19 @@
         selectYear(new Date().getFullYear());
 
         // Scroll Progress Bar Logic
-        window.addEventListener('scroll', () => {
-            const scrollTotal = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrollProgress = (document.documentElement.scrollTop / scrollTotal) * 100;
-            document.getElementById('scroll-progress').style.width = scrollProgress + '%';
-        });
+        const scrollProgressBar = document.getElementById('scroll-progress');
+        const updateScrollProgress = () => {
+            const scrollingElement = document.scrollingElement || document.documentElement;
+            const scrollTotal = scrollingElement.scrollHeight - window.innerHeight;
+            const scrollTop = window.scrollY || scrollingElement.scrollTop;
+            const scrollProgress = scrollTotal > 0 ? (scrollTop / scrollTotal) * 100 : 0;
+
+            scrollProgressBar.style.width = `${Math.min(scrollProgress, 100)}%`;
+        };
+
+        window.addEventListener('scroll', updateScrollProgress, { passive: true });
+        window.addEventListener('resize', updateScrollProgress);
+        updateScrollProgress();
     </script>
 </body>
 
