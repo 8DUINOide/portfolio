@@ -659,7 +659,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const scrolled = window.pageYOffset;
                 const hero = document.querySelector('.hero');
                 if (hero) {
-                    hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+                    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+                    hero.style.transform = isMobile ? 'none' : `translateY(${scrolled * 0.5}px)`;
                 }
                 isScrolling = false;
             });

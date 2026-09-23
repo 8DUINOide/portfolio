@@ -422,9 +422,19 @@ body {
     transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
     border: none;
     cursor: pointer;
+    min-height: 48px;
+    line-height: 1.25;
+    text-align: center;
+}
+
+.hero-actions .btn,
+.project-actions .btn {
+    flex: 1 1 0;
+    min-width: 0;
 }
 
 .btn.primary {
@@ -792,6 +802,18 @@ body {
     display: flex;
     gap: 15px;
     margin-top: auto;
+}
+
+.appbuilders-widget {
+    width: 100%;
+}
+
+.appbuilders-widget > a {
+    box-sizing: border-box;
+    flex: 1 1 220px;
+    justify-content: center;
+    min-width: 0;
+    text-align: center;
 }
 
 /* Internships Section */
@@ -1711,6 +1733,12 @@ footer p {
         grid-template-columns: 1fr;
         gap: 40px;
         text-align: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hero-text {
+        display: contents;
     }
     
     .hero-text h1 {
@@ -1721,6 +1749,7 @@ footer p {
         display: flex;
         flex-direction: column;
         align-items: center;
+        order: 4;
     }
     
     .profile-img {
@@ -1737,6 +1766,56 @@ footer p {
     .hero-actions {
         justify-content: center;
         flex-wrap: wrap;
+        order: 5;
+    }
+
+    .hero-actions,
+    .project-actions,
+    .action-buttons-container {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .hero-actions .btn,
+    .project-actions .btn,
+    .action-buttons-container > .appbuilders-widget,
+    .action-buttons-container > a {
+        width: 100%;
+        max-width: none;
+        flex: 0 0 auto;
+    }
+
+    .action-buttons-container > a {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .action-buttons-container > a img {
+        width: 100% !important;
+        max-width: none;
+        height: 48px !important;
+        object-fit: fill;
+    }
+
+    .action-buttons-container .google-play-button-badge {
+        display: block;
+        width: 100% !important;
+        max-width: none;
+        height: 48px !important;
+        object-fit: fill;
+    }
+
+    .action-buttons-container .appbuilders-widget {
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+
+    .action-buttons-container .appbuilders-widget > a {
+        width: 100%;
+        flex: 0 0 auto;
     }
     
     .education-header {
@@ -2708,4 +2787,27 @@ footer p {
     background: var(--accent-color);
     box-shadow: 0 0 8px var(--accent-color);
     transition: width 0.1s ease-out;
+}
+
+/* Keep mobile actions aligned like project card buttons. */
+@media (max-width: 768px) {
+    .btn,
+    .cert-item > .btn,
+    .cert-actions > .btn,
+    .certificate-item > .btn,
+    .external-channels .btn {
+        width: 100%;
+        max-width: none;
+        justify-content: center;
+    }
+
+    .cert-actions,
+    .external-channels {
+        width: 100%;
+        align-items: stretch;
+    }
+
+    .appbuilders-widget > a {
+        width: 100%;
+    }
 }
